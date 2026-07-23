@@ -1,7 +1,7 @@
 ---
 phase: 1
 slug: foundation-motion-infrastructure
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-07-23
@@ -41,6 +41,8 @@ Scope is exactly three primitives per D-08 — no Container/Section wrapper this
 | `Typography` | `Eyebrow`/`Label`, `Body`, `Heading`, `Display` (see Typography table) | Single component or small set of styled primitives (e.g. `<Label>`, `<Body>`, `<Heading>`, `<Display>`) mapping 1:1 to the four declared type roles — exact API shape is executor's discretion per CONTEXT.md |
 
 Hero section composition (D-05): eyebrow `Label` → `Display`-or-`Heading`-tier hero statement paragraph (see Typography note on role choice) → `Button` (primary CTA, copy below) → `Card` (glass, secondary meta panel, copy below).
+
+**Primary visual anchor:** the hero statement paragraph is the primary focal point of the section (largest reading mass, first thing the eye settles on after the eyebrow); the CTA button is secondary emphasis, carried by the accent color rather than size; the glass meta card is tertiary, supporting context below the fold of the initial glance.
 
 ---
 
@@ -132,14 +134,17 @@ Nothing else uses the accent color this phase — body text, card borders, and b
 
 ## UI Considerations
 
-> Populated by the ui-phase UI-consideration probe. Phase 1's only shipped elements are the Hero's static content (eyebrow, statement paragraph, meta card) and one interactive control (primary CTA button) — no form, list-collection, or media elements exist yet, so most of the 8-category taxonomy is not applicable by the relevance filter.
+> Populated by the ui-phase UI-consideration probe (ui-consideration-probe.cjs). Phase 1's only shipped elements are the Hero's static content (statement paragraph, meta card) and one interactive control (primary CTA button) — no form, list-collection, or media elements exist yet, so most of the 8-category taxonomy is not applicable by the relevance filter. Ran with an explicit element-kind override (E1/E2 = `static-content`, E3 = `interactive-control`) after the heuristic classifier's first pass over-classified the meta card (E2) as form/list-collection-like from its prose — corrected per the propose-then-confirm mitigation before resolving.
 
-Applicable state considerations resolved: 2 covered, 0 backstop, 0 unresolved (6 categories not applicable — no form/list-collection/media/nav elements ship in Phase 1)
+Applicable state considerations resolved: 5 covered, 0 backstop, 0 unresolved (6 categories not applicable — no form/list-collection/media/nav elements ship in Phase 1)
 
 | Category | Element(s) | Status | Resolution / Reason |
 |----------|------------|--------|---------------------|
-| overflow | Hero statement paragraph, meta card (static-content) | ✅ covered | Hero statement is constrained to a max reading width (`max-w-[62ch]`/~680–720px) and wraps naturally across lines at every breakpoint down to 320px; the glass meta card's content wraps within its own padding rather than overflowing the card border or forcing horizontal scroll |
-| long-text | Hero statement (static-content), CTA label (interactive-control) | ✅ covered | The ~400-character hero statement reflows within its constrained column at 18px/1.6 line-height with no truncation/ellipsis; the CTA label `View Selected Work →` is fixed, non-user-generated copy, so no truncation handling is required — button padding/min-width accommodate the full string at all breakpoints |
+| overflow | Hero statement paragraph (static-content) | ✅ covered | Constrained to a max reading width (`max-w-[62ch]`/~680–720px), wraps naturally across lines at every breakpoint down to 320px — no horizontal scroll or clipping |
+| long-text | Hero statement paragraph (static-content) | ✅ covered | The ~400-character paragraph reflows within its constrained column at 18px/1.6 line-height with no truncation/ellipsis — fixed, bundled copy, not user input |
+| overflow | Secondary meta card (static-content) | ✅ covered | The descriptive sentence and status line wrap within the glass card's internal padding (`lg`=24px); card height is intrinsic (not fixed), so content never overflows the border or forces horizontal scroll |
+| long-text | Secondary meta card (static-content) | ✅ covered | Both the descriptive sentence and the `Remote · CET to GST overlap · Available for new work` status line are fixed, bundled copy at Body/Label sizes — they wrap normally within the card; no truncation handling required |
+| long-text | Primary CTA button (interactive-control) | ✅ covered | CTA label `View Selected Work →` is fixed, non-user-generated copy; button padding/min-width accommodate the full string at all breakpoints — no truncation/ellipsis needed |
 | empty | — (no form/list-collection/media) | not applicable | No data-driven element ships in Phase 1 |
 | loading | — (no form/list-collection/media/nav with async data) | not applicable | Hero content is static/bundled; no fetch-driven loading state exists this phase |
 | error | — (no form/list-collection/media/nav) | not applicable | No form exists yet (Phase 4 owns contact-form error copy) |
@@ -160,11 +165,11 @@ Applicable state considerations resolved: 2 covered, 0 backstop, 0 unresolved (6
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS (non-blocking recommendation applied — explicit primary visual anchor sentence added above)
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved (2026-07-23)
