@@ -529,22 +529,25 @@ export function usePrefersReducedMotion(): boolean {
 | A3 | `class-variance-authority` is unnecessary machinery for exactly 2 `Button` variants + 1 `Card` variant in this phase | Standard Stack → Alternatives Considered | Low — already framed as Claude's Discretion in CONTEXT.md; easy to add later without breaking the component's public API if variant count grows |
 | A4 | Context7 MCP being unavailable this session didn't materially change findings vs. official docs (websearch results were cross-referenced against `gsap.com`, `tailwindcss.com`, `reactrouter.com` and GitHub source repos, not single-source blog posts) | Sources | Low-Medium — the planner should treat the integration-pattern claims (not the version numbers, which are `[VERIFIED]` via direct registry query) as `[CITED]` rather than `[VERIFIED]`, and spot-check against official docs during implementation if anything looks off |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **`@vitejs/plugin-react` vs. `@vitejs/plugin-react-swc`**
    - What we know: Both are official, both work with Vite 8/React 19; SWC is faster on large codebases.
    - What's unclear: Whether this project's scale ever benefits meaningfully from the SWC build-speed win (unlikely for a portfolio site).
    - Recommendation: Default to `@vitejs/plugin-react` (the one `npm create vite@latest -- --template react-ts` scaffolds) for maximum compatibility; revisit only if dev-server rebuild speed becomes noticeably slow.
+   - **RESOLVED:** 01-02-PLAN.md pins `@vitejs/plugin-react`.
 
 2. **React Router v8 vs. staying on the v7 line**
    - What we know: v8 is a "boring" major (nearly all changes were opt-in Future Flags in v7), released June 17 2026, now 5+ weeks old with 3 patch releases; `react-router-dom` no longer exists as of v8.
    - What's unclear: Whether any Phase 2/3/4-relevant React Router feature (e.g. specific loader/data APIs) behaves differently enough to matter for this project's simple 2-route-shape needs.
    - Recommendation: Go with v8 now (matches the "current, not stale" research goal and avoids installing a package — `react-router-dom` — that's already a dead end); the migration guide's breaking-change list is short enough to sanity-check against the planner's actual route tree if anything surfaces during Phase 2.
+   - **RESOLVED:** 01-02-PLAN.md pins `react-router@8.3.0` (Data Mode).
 
 3. **TypeScript 7 adoption timing**
    - What we know: GA as of July 8 2026, straight compiler port preserving semantics, but stricter default `tsconfig`.
    - What's unclear: Whether any Vite/React ecosystem tooling this project will add later (e.g. a linter, a testing library type-defs package) has fully caught up to TS 7 in the ~2 weeks since GA.
    - Recommendation: Use TS 7 (current, registry-verified), but if the planner hits an unexpected type-checking error from a third-party `.d.ts` file during Wave 0 setup, falling back to the latest TS 5.x/6.x is a low-cost, fully-supported escape hatch — flag this as a first-hour sanity check rather than a blocking decision now.
+   - **RESOLVED:** 01-02-PLAN.md pins `typescript@7.0.2`; fallback to 5.x/6.x remains available if Wave 0 surfaces a third-party `.d.ts` incompatibility.
 
 ## Environment Availability
 
