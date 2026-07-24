@@ -27,6 +27,8 @@ export function MotionProvider({ children }: { children: ReactNode }) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const lenis = new Lenis({
       autoRaf: false,
       duration: 1.05,
@@ -47,7 +49,7 @@ export function MotionProvider({ children }: { children: ReactNode }) {
       gsap.ticker.remove(update);
       lenis.destroy();
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <ReducedMotionContext.Provider value={prefersReducedMotion}>
