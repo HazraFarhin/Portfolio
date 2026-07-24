@@ -1,5 +1,5 @@
-function App() {
-  return <div>Hazra Farhin — Portfolio</div>
-}
+import { Outlet } from 'react-router';
 
-export default App
+export default function App() {
+  return <Outlet />;
+}
