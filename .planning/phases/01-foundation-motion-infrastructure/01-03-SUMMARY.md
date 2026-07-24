@@ -35,8 +35,9 @@ key-decisions:
 
 patterns-established:
   - "Motion-hook tests mock window.matchMedia per-test via vi.stubGlobal, and mock the 'lenis' module's default export as a vi.fn().mockImplementation(function () {...}) constructor (arrow functions cannot be invoked via `new`)."
+  - "requirements-completed: [] -- QUAL-01/QUAL-02 appear in this plan's frontmatter `requirements` field as the same phase-level tagging convention used by every plan in Phase 1 (see 01-01-SUMMARY.md precedent). This plan's own D7 coverage entry already flags QUAL-01's core 'native scroll/keyboard navigation preserved' claim as human_judgment: true, deferred until a real scrollable route mounts MotionProvider (01-05/01-06) -- marking the requirement complete at the top level while D7 remains unverified would contradict this plan's own coverage data. D1-D6 remain legitimate verified evidence toward QUAL-01/QUAL-02 and keep their requirement: links; only the blanket completion claim (REQUIREMENTS.md checkboxes + this field) is reverted, matching the correction applied to 01-04-SUMMARY.md for the same reason."
 
-requirements-completed: [QUAL-01, QUAL-02]
+requirements-completed: []
 
 coverage:
   - id: D1
