@@ -159,6 +159,10 @@ This plan's frontmatter tags `requirements: [QUAL-01, QUAL-02]`, and this is the
 - Phase 3 can add the remaining homepage sections as siblings within `HomeRoute` (or split into further route-level composition) and repoint `heroContent.ctaHref` to `'#selected-work'` once that section exists.
 - Blocker/concern carried forward: Task 3's real-browser `<human-check>` (keyboard focus order, CTA anchor scroll, OS-level `prefers-reduced-motion` toggle) is outstanding and must be completed as part of end-of-phase UAT before QUAL-01/QUAL-02 can be marked complete in REQUIREMENTS.md.
 
+## Self-Check: PASSED
+
+All created files verified present on disk; all task/summary commit hashes (`67d1e1c`, `9b1eca2`, `58e58b5`, `a6fa36a`, `7469869`) verified in git log.
+
 ---
 *Phase: 01-foundation-motion-infrastructure*
 *Completed: 2026-07-24*
