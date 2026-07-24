@@ -156,3 +156,14 @@ None - no external service configuration required.
 ---
 *Phase: 01-foundation-motion-infrastructure*
 *Completed: 2026-07-24*
+
+## Self-Check: PASSED
+
+All claimed files exist and all claimed commit hashes are present in git history:
+- `src/motion/useScrollReveal.ts` -- FOUND
+- `src/motion/useScrollReveal.test.ts` -- FOUND
+- `vite.config.ts` -- FOUND
+- `.planning/phases/01-foundation-motion-infrastructure/01-05-SUMMARY.md` -- FOUND
+- `2e03339` (test commit) -- FOUND
+- `8e7a265` (feat commit) -- FOUND
+- `dbffff8` (docs commit) -- FOUND
