@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, renderHook } from '@testing-library/react';
+import { render, renderHook, act } from '@testing-library/react';
 import { StrictMode } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -17,15 +17,34 @@ vi.mock('lenis', () => {
   return { default: LenisMock };
 });
 
+/**
+ * Fake MediaQueryList used to drive matchMedia mocks per-test.
+ * Captures the registered 'change' listener so tests can invoke it directly,
+ * and tracks addEventListener/removeEventListener calls for cleanup assertions.
+ * Mirrors the class in usePrefersReducedMotion.test.ts.
+ */
+class FakeMediaQueryList {
+  matches: boolean;
+  addEventListener = vi.fn((_type: string, listener: EventListener) => {
+    this.listener = listener;
+  });
+  removeEventListener = vi.fn();
+  listener: EventListener | undefined;
+
+  constructor(matches: boolean) {
+    this.matches = matches;
+  }
+
+  triggerChange(matches: boolean) {
+    this.matches = matches;
+    this.listener?.(new Event('change'));
+  }
+}
+
 function mockMatchMedia(initialMatches: boolean) {
-  vi.stubGlobal(
-    'matchMedia',
-    vi.fn().mockReturnValue({
-      matches: initialMatches,
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn(),
-    })
-  );
+  const mql = new FakeMediaQueryList(initialMatches);
+  vi.stubGlobal('matchMedia', vi.fn().mockReturnValue(mql));
+  return mql;
 }
 
 function ContextReader({ onValue }: { onValue: (value: boolean) => void }) {
@@ -123,5 +142,65 @@ describe('MotionProvider', () => {
     lenisInstances.forEach((instance) => {
       expect(instance.destroy).toHaveBeenCalled();
     });
+  });
+
+  it('does not instantiate Lenis or register a gsap.ticker callback when prefersReducedMotion is true at mount', () => {
+    mockMatchMedia(true);
+    const addSpy = vi.spyOn(gsap.ticker, 'add');
+
+    render(
+      <MotionProvider>
+        <div>content</div>
+      </MotionProvider>
+    );
+
+    expect(Lenis).not.toHaveBeenCalled();
+    expect(addSpy).not.toHaveBeenCalled();
+  });
+
+  it('creates no Lenis instance or ticker callback under StrictMode when prefersReducedMotion is true', () => {
+    mockMatchMedia(true);
+    const addSpy = vi.spyOn(gsap.ticker, 'add');
+
+    const { unmount } = render(
+      <StrictMode>
+        <MotionProvider>
+          <div>content</div>
+        </MotionProvider>
+      </StrictMode>
+    );
+
+    expect(Lenis).not.toHaveBeenCalled();
+    expect(addSpy).not.toHaveBeenCalled();
+    expect(() => unmount()).not.toThrow();
+  });
+
+  it('tears down Lenis when prefersReducedMotion toggles to true mid-session, and re-initializes it when toggled back to false', () => {
+    const mql = mockMatchMedia(false);
+
+    render(
+      <MotionProvider>
+        <div>content</div>
+      </MotionProvider>
+    );
+
+    expect(Lenis).toHaveBeenCalledTimes(1);
+    const firstInstance = (Lenis as unknown as ReturnType<typeof vi.fn>).mock.results[0].value;
+
+    act(() => {
+      mql.triggerChange(true);
+    });
+
+    expect(firstInstance.destroy).toHaveBeenCalledTimes(1);
+    expect(Lenis).toHaveBeenCalledTimes(1);
+
+    act(() => {
+      mql.triggerChange(false);
+    });
+
+    expect(Lenis).toHaveBeenCalledTimes(2);
+    expect(
+      (Lenis as unknown as ReturnType<typeof vi.fn>).mock.results[1].value.destroy
+    ).not.toHaveBeenCalled();
   });
 });
