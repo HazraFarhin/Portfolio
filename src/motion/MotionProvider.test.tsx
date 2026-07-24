@@ -11,13 +11,10 @@ import {
 import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 vi.mock('lenis', () => {
-  const instances: Array<{ on: ReturnType<typeof vi.fn>; raf: ReturnType<typeof vi.fn>; destroy: ReturnType<typeof vi.fn> }> = [];
-  const LenisMock = vi.fn().mockImplementation(() => {
-    const instance = { on: vi.fn(), raf: vi.fn(), destroy: vi.fn() };
-    instances.push(instance);
-    return instance;
+  const LenisMock = vi.fn().mockImplementation(function LenisMockImpl() {
+    return { on: vi.fn(), raf: vi.fn(), destroy: vi.fn() };
   });
-  return { default: LenisMock, __instances: instances };
+  return { default: LenisMock };
 });
 
 function mockMatchMedia(initialMatches: boolean) {
@@ -89,13 +86,20 @@ describe('MotionProvider', () => {
     const tickerCallback = addSpy.mock.calls[0][0];
     const lenisInstance = (Lenis as unknown as ReturnType<typeof vi.fn>).mock.results[0].value;
 
-    tickerCallback(1, 0, 0, false);
+    tickerCallback(1, 0, 0, 0);
     expect(lenisInstance.raf).toHaveBeenCalled();
   });
 
   it('cleans up symmetrically under StrictMode phantom mount-unmount-mount, leaving no leaked ticker/Lenis state', () => {
-    const addSpy = vi.spyOn(gsap.ticker, 'add');
-    const removeSpy = vi.spyOn(gsap.ticker, 'remove');
+    // gsap.ticker.add() internally calls remove() first as a dedup safety
+    // step, so raw add/remove call *counts* are not directly comparable.
+    // The real assertion of "no leak" is: the ticker's actual listener list
+    // returns to its pre-mount length after unmount (see gsap-core.js's
+    // ticker.add/.remove implementation, which mutates a shared `_listeners`
+    // array exposed at `gsap.ticker._listeners`).
+    const baselineListenerCount = (
+      gsap.ticker as unknown as { _listeners: unknown[] }
+    )._listeners.length;
 
     const { unmount } = render(
       <StrictMode>
@@ -107,7 +111,10 @@ describe('MotionProvider', () => {
 
     unmount();
 
-    expect(addSpy).toHaveBeenCalledTimes(removeSpy.mock.calls.length);
+    const finalListenerCount = (
+      gsap.ticker as unknown as { _listeners: unknown[] }
+    )._listeners.length;
+    expect(finalListenerCount).toBe(baselineListenerCount);
 
     const lenisInstances = (Lenis as unknown as ReturnType<typeof vi.fn>).mock.results.map(
       (r) => r.value
