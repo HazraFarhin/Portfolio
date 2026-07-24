@@ -103,6 +103,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEPL-03 | Phase 4 | Pending |
 
 **Coverage:**
+
 - v1 requirements: 24 total
 - Mapped to phases: 24
 - Unmapped: 0 ✓
