@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Enabling `prefers-reduced-motion` at the OS level automatically disables non-essential motion on every animated component built so far, with no per-component opt-in code required
   4. A shared `components/ui/` primitive set (buttons, cards, typography) exists and is reused rather than redefined per section
 
-**Plans**: 2/6 plans executed
+**Plans**: 4/6 plans executed
 Plans:
 **Wave 1**
 
@@ -45,8 +45,8 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 01-03-PLAN.md — MotionProvider (Lenis+GSAP/ScrollTrigger bootstrap) + reduced-motion detection
-- [ ] 01-04-PLAN.md — UI primitives: Button, Card, Typography
+- [x] 01-03-PLAN.md — MotionProvider (Lenis+GSAP/ScrollTrigger bootstrap) + reduced-motion detection
+- [x] 01-04-PLAN.md — UI primitives: Button, Card, Typography
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
@@ -126,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Motion Infrastructure | 2/6 | In Progress|  |
+| 1. Foundation & Motion Infrastructure | 4/6 | In Progress|  |
 | 2. Content Layer & Case-Study Template | 0/TBD | Not started | - |
 | 3. Homepage Build | 0/TBD | Not started | - |
 | 4. Contact Form & Deployment Hardening | 0/TBD | Not started | - |
