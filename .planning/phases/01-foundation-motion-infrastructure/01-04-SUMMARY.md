@@ -36,16 +36,16 @@ key-files:
 
 key-decisions:
   - "Extended tailwind-merge's font-size class group to explicitly register text-label/text-body/text-heading/text-display -- without this, twMerge silently dropped these custom @theme tokens whenever merged with a text-color utility (e.g. text-muted-foreground), which would have broken every Typography-role class emitted by any component using cn()"
+  - "requirements-completed: [] -- QUAL-01/QUAL-02 appear in this plan's frontmatter `requirements` field as the same phase-level tagging convention used by every plan in Phase 1 (see 01-01-SUMMARY.md precedent), not a per-plan delivery claim. This plan ships zero motion code: Button's `motion-safe:` hover-lift variant and Card's static `backdrop-blur-lg` styling are CSS-only building blocks, not GSAP/Lenis-driven scroll motion (QUAL-01) or comprehensive prefers-reduced-motion coverage (QUAL-02). Those requirements are genuinely fulfilled by 01-03 (MotionProvider), 01-05 (useScrollReveal), and 01-06 (Hero integration). A prior corrective pass reverted this plan's original REQUIREMENTS.md commit (05bad17), which had incorrectly marked both requirements complete."
 
 patterns-established:
   - "cn() extension point: custom @theme-scale utilities that share a Tailwind class-group prefix (text-*, bg-*, etc.) must be registered in tailwind-merge's classGroups override in src/lib/cn.ts, or they silently disappear on merge"
 
-requirements-completed: [QUAL-01, QUAL-02]
+requirements-completed: []
 
 coverage:
   - id: D1
     description: "Button primitive renders <button>/<a> polymorphically, distinct primary/ghost styling, never truncates CTA copy, gates hover-lift behind motion-safe:"
-    requirement: "QUAL-02"
     verification:
       - kind: unit
         ref: "src/components/ui/Button.test.tsx (5 tests)"
@@ -53,7 +53,6 @@ coverage:
     human_judgment: false
   - id: D2
     description: "Card primitive renders glass surface (rounded-3xl, backdrop-blur-lg), never clips long content, merges caller className"
-    requirement: "QUAL-01"
     verification:
       - kind: unit
         ref: "src/components/ui/Card.test.tsx (3 tests)"
@@ -61,7 +60,6 @@ coverage:
     human_judgment: false
   - id: D3
     description: "Typography primitives (Label/Body/Heading/Display) render correct default tag + token classes, support `as` override, never truncate long content"
-    requirement: "QUAL-01"
     verification:
       - kind: unit
         ref: "src/components/ui/Typography.test.tsx (6 tests)"
