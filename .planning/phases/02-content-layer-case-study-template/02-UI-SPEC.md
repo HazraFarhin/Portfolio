@@ -1,7 +1,7 @@
 ---
 phase: 2
 slug: content-layer-case-study-template
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-07-24
@@ -181,10 +181,12 @@ One shared `ImagePlaceholder` component, props: `{ caption: string; size: 'banne
 
 ## UI Considerations
 
-Applicable state considerations resolved: 12 covered, 1 backstop, 0 unresolved.
+Applicable state considerations resolved: 12 covered, 1 backstop, 0 unresolved. (Cross-checked against the compiled `ui-consideration-probe` taxonomy across 12 named surfaces — 2 additional systemic categories below were dismissed with an explicit architectural reason rather than left unaddressed.)
 
 | Category | Element(s) | Status | Resolution / Reason |
 |----------|------------|--------|---------------------|
+| loading | All content sections (Overview, Tools Used, Outcome & Impact, Challenge, Process, Solution, Learnings, cover/stage image placeholders, Next Project nav) | ➖ n/a (dismissed) | Content loads synchronously via Vite's `import.meta.glob` at build time (D-06) — no async fetch exists anywhere in this phase, so no loading/skeleton state is needed |
+| error | All content sections (same list) + case-study route resolution | ➖ n/a (dismissed) | No runtime data-fetch failure mode exists (D-06); malformed frontmatter fails schema validation at build/dev time as a console/build error (see Copywriting Contract "Error state" row), never a user-facing runtime error UI beyond the not-found fallback (already covered below) |
 | empty | Overview "Links" row (`external_link` absent) | ✅ covered | Renders "Coming soon" muted `Label` text in place of Prototype/Live Site buttons |
 | empty | Outcome & Impact list (zero authored items) | ✅ covered | Renders a single italic placeholder line ("Outcome details pending...") instead of an empty bulleted list |
 | empty | Tools Used list (zero authored items) | ✅ covered | Renders muted "Tools list pending." — defensive backstop only; all 6 placeholder files ship ≥3 generic tools per D-01 |
@@ -212,11 +214,11 @@ Applicable state considerations resolved: 12 covered, 1 backstop, 0 unresolved.
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved (2026-07-24)
