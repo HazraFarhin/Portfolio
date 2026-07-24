@@ -32,8 +32,8 @@
 
 ### Motion, Performance & Accessibility
 
-- [ ] **QUAL-01**: User experiences GSAP/Lenis-driven scroll motion matching the Axisform reference's language (smooth-scroll, parallax, glass-morphism reveals) without breaking native scroll/keyboard navigation
-- [ ] **QUAL-02**: User with `prefers-reduced-motion` enabled sees all non-essential motion disabled automatically
+- [x] **QUAL-01**: User experiences GSAP/Lenis-driven scroll motion matching the Axisform reference's language (smooth-scroll, parallax, glass-morphism reveals) without breaking native scroll/keyboard navigation
+- [x] **QUAL-02**: User with `prefers-reduced-motion` enabled sees all non-essential motion disabled automatically
 - [ ] **QUAL-03**: User on mobile experiences a deliberately simplified motion treatment, not a scaled-down desktop experience
 - [ ] **QUAL-04**: Site meets baseline accessibility (semantic headings, alt text, keyboard navigation, visible focus states, adequate contrast)
 - [ ] **QUAL-05**: Site meets a performance budget (fast load, no layout-shift-inducing reveal animations, code-split animation libraries)
@@ -93,8 +93,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-02 | Phase 4 | Pending |
 | CONT-03 | Phase 4 | Pending |
 | CONT-04 | Phase 3 | Pending |
-| QUAL-01 | Phase 1 | Pending |
-| QUAL-02 | Phase 1 | Pending |
+| QUAL-01 | Phase 1 | Complete |
+| QUAL-02 | Phase 1 | Complete |
 | QUAL-03 | Phase 5 | Pending |
 | QUAL-04 | Phase 5 | Pending |
 | QUAL-05 | Phase 5 | Pending |
@@ -103,6 +103,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEPL-03 | Phase 4 | Pending |
 
 **Coverage:**
+
 - v1 requirements: 24 total
 - Mapped to phases: 24
 - Unmapped: 0 ✓
