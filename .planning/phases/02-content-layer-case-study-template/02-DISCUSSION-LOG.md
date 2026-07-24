@@ -48,6 +48,18 @@
 
 ---
 
+## Template Fidelity & Future Editability (2026-07-24 update)
+
+| Question | User's answer |
+|----------|----------------|
+| Which case-study template should be followed? | `Portfolio-Documentation/Project Page- Template.md` — used as-is, literally, no deviation |
+| Content authoring status (D-01–D-03) revisit? | Keep as-is — no changes |
+| Does "edit it in the future after the website is visualized" mean plain `.md` file edits, no dev/tooling needed? | Yes — confirmed (recommended option) |
+
+**Notes:** Captured as D-11/D-12 in CONTEXT.md. D-11 reaffirms D-04/D-07 with explicit user confirmation of the literal template file. D-12 reaffirms D-04/D-06 (plain Markdown+frontmatter, no hardcoded JSX copy) with an explicit requirement that content-only edits must never require component code changes — this is what makes Hazra's later self-editing workflow possible.
+
+---
+
 ## Claude's Discretion
 
 - Exact schema-validation library (Zod vs. Valibot vs. other lightweight runtime validator)

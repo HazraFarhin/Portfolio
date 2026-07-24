@@ -1,6 +1,7 @@
 # Phase 2: Content Layer & Case-Study Template - Context
 
 **Gathered:** 2026-07-24
+**Updated:** 2026-07-24 (D-11, D-12 added — template fidelity & future editability confirmed)
 **Status:** Ready for planning
 
 <domain>
@@ -30,6 +31,10 @@ This phase builds the file-based, typed case-study content system and the reusab
 
 ### Scope Boundary — Deferred Slugs
 - **D-10:** Phase 2 authors content files for exactly the 6 featured slugs. The 5 deferred slugs (riyaah, icici-bank-atm-kiosk, ambit, northernarc, citrus) are NOT created as content files, NOT given routes, and NOT stubbed in this phase — full pages for them are out of scope for v1 per PROJECT.md, and gating them out of navigation/sitemap is explicitly Phase 4's job (ROADMAP.md Phase 4 success criterion #5), not this phase's.
+
+### Template Fidelity & Future Editability (confirmed 2026-07-24 update)
+- **D-11:** `Portfolio-Documentation/Project Page- Template.md` is the literal, authoritative case-study template — every frontmatter field and every body section (Overview, Tools Used, Outcome & Impact, The Challenge, Process's 5 sub-stages, Solution, Learnings & Reflections, Next Project footer) must be implemented exactly as structured there, with no deviation, reordering, or omission of sections. This reaffirms D-04/D-07 with explicit user confirmation rather than inferred intent.
+- **D-12:** Hazra intends to directly edit case-study content herself after the site is visualized — swapping placeholder copy (D-01) for real copy by editing the `.md` files in the repo, with no developer involvement and no new tooling required. This confirms (does not change) the already-locked D-04/D-06 approach: plain Markdown+frontmatter files loaded via Vite glob, never hardcoded in component/JSX code. Implementation must ensure editing a `.md` file's body or frontmatter is sufficient on its own to update the rendered page — no component changes should ever be required for a content-only edit.
 
 ### Claude's Discretion
 - Exact schema-validation library (Zod vs. Valibot vs. other lightweight runtime validator) — D-05 only locks that one exists.
