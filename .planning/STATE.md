@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: 01
-current_phase_name: foundation-motion-infrastructure
-status: executing
-stopped_at: Completed 01-07-PLAN.md (Lenis reduced-motion gap closure)
-last_updated: "2026-07-24T11:46:47.992Z"
-last_activity: 2026-07-23
-last_activity_desc: Phase 01 execution started
+current_phase: 2
+current_phase_name: Content Layer & Case-Study Template
+status: planning
+stopped_at: Phase 2 context gathered
+last_updated: "2026-07-24T12:39:33.168Z"
+last_activity: 2026-07-24
+last_activity_desc: Phase 01 complete, transitioned to Phase 2
 progress:
-  total_phases: 1
+  total_phases: 2
   completed_phases: 1
   total_plans: 7
   completed_plans: 7
@@ -20,25 +20,25 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-07-21)
+See: .planning/PROJECT.md (updated 2026-07-24)
 
 **Core value:** A recruiter, hiring manager, or prospective client can understand Hazra's design capability and process within minutes through fast, credible, case-study-driven work — clarity of work over decoration.
-**Current focus:** Phase 01 — foundation-motion-infrastructure
+**Current focus:** Phase 2 — Content Layer & Case-Study Template
 
 ## Current Position
 
-Phase: 01 (foundation-motion-infrastructure) — EXECUTING
-Plan: 2 of 6
-Status: Ready to execute
-Last activity: 2026-07-23 — Phase 01 execution started
+Phase: 2 — Content Layer & Case-Study Template
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-07-24 — Phase 01 complete, transitioned to Phase 2
 
-Progress: [██████████] 100%
+Progress: [████████████████████] 7/7 plans (100%)
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 0
+- Total plans completed: 7
 - Average duration: - min
 - Total execution time: 0 hours
 
@@ -46,7 +46,7 @@ Progress: [██████████] 100%
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 01 | 7 | - | - |
 
 **Recent Trend:**
 
@@ -70,7 +70,8 @@ Recent decisions affecting current work:
 - Roadmap: Axisform's motion language reimplemented in React (not CDN) via a centralized `motion/` module, built first in Phase 1 so no later phase retrofits reduced-motion or ScrollTrigger cleanup
 - Roadmap: Case-study content (Phase 2) sequenced before homepage assembly (Phase 3) so Selected Work consumes real loader functions, never a hardcoded slug array
 - Roadmap: Contact-form delivery and deployment routing (Phase 4) treated as "looks done but isn't" categories — require end-to-end verification against the live inbox and direct-loaded case-study routes, not local dev assumption
-- [Phase ?]: Did not mark QUAL-01/QUAL-02 complete in REQUIREMENTS.md -- deferred to Phase 1 re-verification per 01-07-PLAN.md success_criteria
+- Phase 1: QUAL-01/QUAL-02 marked Complete in REQUIREMENTS.md after UAT (3/3 passed) and canonical verification passed — the deferred re-verification gate from 01-07-PLAN.md is resolved
+- Phase 1: Reduced-motion detection centralized in one hook (`usePrefersReducedMotion`) consumed internally by `MotionProvider`; Lenis instantiation now gated on the same signal (re-runs destroy/re-init on toggle) — no future motion hook should re-implement its own `matchMedia` check
 
 ### Pending Todos
 
@@ -93,6 +94,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-07-24T11:46:47.986Z
-Stopped at: Completed 01-07-PLAN.md (Lenis reduced-motion gap closure)
-Resume file: None
+Last session: 2026-07-24T12:39:33.156Z
+Stopped at: Phase 2 context gathered
+Resume file: .planning/phases/02-content-layer-case-study-template/02-CONTEXT.md
