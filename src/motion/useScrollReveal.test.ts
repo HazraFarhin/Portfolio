@@ -11,6 +11,12 @@ vi.mock('./MotionProvider', () => ({
 
 import { usePrefersReducedMotionContext } from './MotionProvider';
 
+// Mocking './MotionProvider' above means its module-scope
+// `gsap.registerPlugin(ScrollTrigger)` side effect never runs. useGSAP
+// requires the plugin to be registered for `scrollTrigger` options to take
+// effect, so register it directly here (mirrors what MotionProvider does).
+gsap.registerPlugin(ScrollTrigger);
+
 /** Harness: mounts a ref'd div and wires it into useScrollReveal. */
 function Harness({
   options,
