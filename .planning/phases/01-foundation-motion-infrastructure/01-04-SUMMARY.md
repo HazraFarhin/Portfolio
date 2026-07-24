@@ -150,3 +150,7 @@ None - no external service configuration required.
 ---
 *Phase: 01-foundation-motion-infrastructure*
 *Completed: 2026-07-24*
+
+## Self-Check: PASSED
+
+All created files verified present on disk (`src/components/ui/Button.tsx`, `Button.test.tsx`, `Card.tsx`, `Card.test.tsx`, `Typography.tsx`, `Typography.test.tsx`, `src/lib/cn.ts`, this SUMMARY.md). All 7 task/metadata commit hashes (`4717799`, `6d38b34`, `9c554d0`, `75a21c0`, `38b0109`, `48e2a9a`, `b296785`) verified present in git log.
