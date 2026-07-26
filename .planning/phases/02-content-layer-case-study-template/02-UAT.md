@@ -38,7 +38,9 @@ result: pass
 
 ### 7. Challenge section renders pull-quote styling
 expected: A case study with a Challenge section (e.g., with blockquote content) shows the blockquote styled with italic text and a left border — not as raw markdown or plain text.
-result: pass
+result: issue
+reported: "I see the challenge section with \"the challenge\" as the title and body text"
+severity: major
 
 ### 8. Zero hardcoded slug literals in production source
 expected: (Automated — auto-passed per Plan 09 D5.) Confirmed by `grep` during execution: zero hardcoded slug literals in non-test source files.
@@ -61,11 +63,18 @@ coverage_id: D1
 ## Summary
 
 total: 10
-passed: 10
-issues: 0
+passed: 9
+issues: 1
 pending: 0
 skipped: 0
 
 ## Gaps
 
-[none yet]
+- gap_id: G-02-7
+  truth: "A case study with a Challenge section shows the blockquote styled with italic text and a left border — not as raw markdown or plain text."
+  status: failed
+  reason: "User reported: I see the challenge section with \"the challenge\" as the title and body text"
+  severity: major
+  test: 7
+  artifacts: []
+  missing: []
