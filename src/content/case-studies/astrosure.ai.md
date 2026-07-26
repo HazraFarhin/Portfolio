@@ -33,6 +33,8 @@ order: 4
 - Customers frequently abandoned the claims flow partway through, often citing confusion about next steps
 - The quoting and claims experiences used inconsistent visual patterns, making the product feel disjointed
 
+> Customers weren't struggling with insurance -- they were struggling with how it was being explained to them.
+
 ## Process
 
 ### 1. Discovery & Research
