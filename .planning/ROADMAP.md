@@ -73,7 +73,7 @@ Plans:
   3. Role and outcome are visible within the first viewport of every case-study page, skimmable in seconds without scrolling
   4. Case-study content lives in typed Markdown+frontmatter files validated by a schema; adding a 7th case study requires only a new content file, no component changes
 
-**Plans**: 2/9 plans executed
+**Plans**: 4/9 plans executed
 Plans:
 
 **Wave 1**
@@ -83,8 +83,8 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 02-03-PLAN.md — CaseStudyFrontmatterSchema (Zod) + parseCaseStudyFile/splitBodyIntoSections
-- [ ] 02-04-PLAN.md — ImagePlaceholder, ToolsUsed, OutcomeImpact components
+- [x] 02-03-PLAN.md — CaseStudyFrontmatterSchema (Zod) + parseCaseStudyFile/splitBodyIntoSections
+- [x] 02-04-PLAN.md — ImagePlaceholder, ToolsUsed, OutcomeImpact components
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -153,7 +153,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Motion Infrastructure | 7/7 | Complete    | 2026-07-24 |
-| 2. Content Layer & Case-Study Template | 2/9 | In Progress|  |
+| 2. Content Layer & Case-Study Template | 4/9 | In Progress|  |
 | 3. Homepage Build | 0/TBD | Not started | - |
 | 4. Contact Form & Deployment Hardening | 0/TBD | Not started | - |
 | 5. Visual/Motion Polish & Performance Hardening | 0/TBD | Not started | - |
