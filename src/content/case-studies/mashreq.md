@@ -33,6 +33,8 @@ order: 3
 - Interaction patterns varied across different parts of the app, undermining consistency
 - Stakeholders had differing opinions on prioritization, requiring careful facilitation to reach alignment
 
+> The interface needed to feel like one coherent product, not five different tools stitched together under one login.
+
 ## Process
 
 ### 1. Discovery & Research

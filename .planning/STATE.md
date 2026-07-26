@@ -5,15 +5,15 @@ milestone_name: milestone
 current_phase: 02
 current_phase_name: content-layer-case-study-template
 status: executing
-stopped_at: Phase 02 UI-SPEC approved
-last_updated: "2026-07-26T05:53:59.850Z"
+stopped_at: Completed 02-10-PLAN.md
+last_updated: "2026-07-26T10:48:53.125Z"
 last_activity: 2026-07-26
 last_activity_desc: Phase 02 execution resumed (wave continue)
 progress:
   total_phases: 2
-  completed_phases: 1
-  total_plans: 16
-  completed_plans: 11
+  completed_phases: 2
+  total_plans: 17
+  completed_plans: 17
 ---
 
 # Project State
@@ -28,11 +28,11 @@ See: .planning/PROJECT.md (updated 2026-07-24)
 ## Current Position
 
 Phase: 02 (content-layer-case-study-template) — EXECUTING
-Plan: 1 of 9
-Status: Executing Phase 02
+Plan: 2 of 9
+Status: Ready to execute
 Last activity: 2026-07-26 — Phase 02 execution resumed (wave continue)
 
-Progress: [████████████████████] 7/7 plans (100%)
+Progress: [████████████████████] 7/7 plans ([██████████] 100%)
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ Progress: [████████████████████] 7/7 pla
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | Phase 01 P07 | 20min | 1 tasks | 2 files |
+| Phase 02 P10 | 12min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,7 @@ Recent decisions affecting current work:
 - Roadmap: Contact-form delivery and deployment routing (Phase 4) treated as "looks done but isn't" categories — require end-to-end verification against the live inbox and direct-loaded case-study routes, not local dev assumption
 - Phase 1: QUAL-01/QUAL-02 marked Complete in REQUIREMENTS.md after UAT (3/3 passed) and canonical verification passed — the deferred re-verification gate from 01-07-PLAN.md is resolved
 - Phase 1: Reduced-motion detection centralized in one hook (`usePrefersReducedMotion`) consumed internally by `MotionProvider`; Lenis instantiation now gated on the same signal (re-runs destroy/re-init on toggle) — no future motion hook should re-implement its own `matchMedia` check
+- [Phase ?]: Content-only fix for UAT gap G-02-7: added a Challenge-section pull-quote blockquote to all 6 case-study markdown files, matching each file's existing '--' copy convention, without modifying Challenge.tsx
 
 ### Pending Todos
 
@@ -94,6 +96,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-07-24T13:19:14.745Z
-Stopped at: Phase 02 UI-SPEC approved
-Resume file: .planning/phases/02-content-layer-case-study-template/02-UI-SPEC.md
+Last session: 2026-07-26T10:48:53.115Z
+Stopped at: Completed 02-10-PLAN.md
+Resume file: None

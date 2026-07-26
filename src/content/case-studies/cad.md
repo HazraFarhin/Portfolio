@@ -33,6 +33,8 @@ order: 0
 - Advanced users relied on dense, expert-level controls that any redesign risked removing
 - Inconsistent UI patterns across the product made the tool feel harder to trust than it was
 
+> The redesign had to make the workflow easier to learn without making it any less powerful for the people who already knew it inside out.
+
 ## Process
 
 ### 1. Discovery & Research
