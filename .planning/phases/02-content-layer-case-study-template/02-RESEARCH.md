@@ -430,16 +430,16 @@ describe('parseCaseStudyFile', () => {
 | A3 | An explicit `order: number` frontmatter field is the best fix for Pitfall 3 (glob ordering) rather than a hardcoded slug-order array in the loader | Common Pitfalls / Pitfall 3 | Low-Medium — both approaches work; the `order` field is recommended specifically because it keeps "add a 7th case study" a pure content-file change (no loader edit), most faithfully satisfying D-12, but this is Claude's Discretion, not a locked decision |
 | A4 | The cover-image placeholder should NOT be dropped from the template structure despite the D-08/D-11 layout tension (Pitfall 5) | Common Pitfalls / Pitfall 5 | Medium — if a future planner/UI-spec step decides differently (e.g., moves cover image to only appear on hover, or omits it entirely for v1), that's a legitimate call, but it should be a deliberate decision, not an oversight |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Should `order` live in frontmatter, or should the loader hardcode an IA-derived slug-order array?**
+1. **Should `order` live in frontmatter, or should the loader hardcode an IA-derived slug-order array?** — **RESOLVED:** `order: number` was added to the frontmatter schema (Plan 02-03) and is authored per-file in all 6 content files (Plan 02-02); Plan 02-08's loader sorts by this field rather than hardcoding a slug-order array, per Assumption A3.
    - What we know: Both work technically; `order` per-file is more consistent with D-12's "content-only change" spirit.
-   - What's unclear: Whether the user has a preference for keeping ordering logic centralized (loader) vs. distributed (per-file frontmatter).
+   - What's unclear: ~~Whether the user has a preference for keeping ordering logic centralized (loader) vs. distributed (per-file frontmatter).~~ Resolved during planning — distributed (frontmatter) was chosen.
    - Recommendation: Default to `order: number` in frontmatter (Assumption A3); flag for confirmation in discuss-phase or plan-check if the planner disagrees.
 
-2. **Exact visual treatment of the cover-image placeholder given the D-08/D-11 tension (Pitfall 5).**
+2. **Exact visual treatment of the cover-image placeholder given the D-08/D-11 tension (Pitfall 5).** — **RESOLVED:** 02-UI-SPEC.md locks the cover placeholder to a compact banner capped at `clamp(140px, 20vh, 220px)` (never full-bleed), paired with a `Heading`-not-`Display` title, so Overview remains reachable without scrolling; Plan 02-09 implements this sizing and flags the above-the-fold fit as a backstop manual-UAT check (per 02-VALIDATION.md's Manual-Only Verifications table) rather than a DOM-order assertion alone.
    - What we know: A cover-image slot must exist structurally (D-11); Overview must be reachable without scrolling (D-08).
-   - What's unclear: Exact pixel/viewport sizing — this is a visual design decision better suited to a UI-spec pass or explicit planner judgment call, not something researchable in the abstract.
+   - What's unclear: ~~Exact pixel/viewport sizing~~ Resolved — see UI-SPEC's Above-the-fold budget section.
    - Recommendation: Planner should size the cover-image placeholder conservatively (e.g., a compact strip rather than a full-bleed hero) and verify visually during UAT that Overview is still reachable without scrolling on a typical viewport (per CASE-03's literal wording).
 
 ## Environment Availability

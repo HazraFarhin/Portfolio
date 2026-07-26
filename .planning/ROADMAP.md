@@ -13,7 +13,7 @@ This roadmap builds a from-scratch React + Tailwind CSS portfolio in five layers
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Motion Infrastructure** - Vite/React/TS/Tailwind scaffold with a centralized, reduced-motion-safe GSAP + Lenis motion system and routing shell
+- [x] **Phase 1: Foundation & Motion Infrastructure** - Vite/React/TS/Tailwind scaffold with a centralized, reduced-motion-safe GSAP + Lenis motion system and routing shell (completed 2026-07-24)
 - [ ] **Phase 2: Content Layer & Case-Study Template** - Validated file-based case-study content and a reusable template rendering all 6 featured project pages
 - [ ] **Phase 3: Homepage Build** - Single-scroll homepage assembling hero through footer from real content and motion hooks
 - [ ] **Phase 4: Contact Form & Deployment Hardening** - Verified end-to-end contact-form delivery, résumé download, and public deployment with correct routing
@@ -73,7 +73,30 @@ Plans:
   3. Role and outcome are visible within the first viewport of every case-study page, skimmable in seconds without scrolling
   4. Case-study content lives in typed Markdown+frontmatter files validated by a schema; adding a 7th case study requires only a new content file, no component changes
 
-**Plans**: TBD
+**Plans**: 0/9 plans executed
+Plans:
+
+**Wave 1**
+
+- [ ] 02-01-PLAN.md — Package legitimacy verification checkpoint (blocking, gates zod/js-yaml/react-markdown install)
+- [ ] 02-02-PLAN.md — 6 case-study content files (Markdown + YAML frontmatter)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 02-03-PLAN.md — CaseStudyFrontmatterSchema (Zod) + parseCaseStudyFile/splitBodyIntoSections
+- [ ] 02-04-PLAN.md — ImagePlaceholder, ToolsUsed, OutcomeImpact components
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 02-05-PLAN.md — Solution component
+- [ ] 02-06-PLAN.md — Process component (5 fixed sub-stages)
+- [ ] 02-07-PLAN.md — Overview + DraftBadge components
+- [ ] 02-08-PLAN.md — Content loader (import.meta.glob, per-file isolation, circular Next Project)
+
+**Wave 4** *(blocked on Wave 3 completion)*
+
+- [ ] 02-09-PLAN.md — CaseStudyPage integration + router wiring (capstone)
+
 **UI hint**: yes
 
 ### Phase 3: Homepage Build
@@ -129,8 +152,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Motion Infrastructure | 7/7 | In Progress|  |
-| 2. Content Layer & Case-Study Template | 0/TBD | Not started | - |
+| 1. Foundation & Motion Infrastructure | 7/7 | Complete    | 2026-07-24 |
+| 2. Content Layer & Case-Study Template | 0/9 | Not started | - |
 | 3. Homepage Build | 0/TBD | Not started | - |
 | 4. Contact Form & Deployment Hardening | 0/TBD | Not started | - |
 | 5. Visual/Motion Polish & Performance Hardening | 0/TBD | Not started | - |

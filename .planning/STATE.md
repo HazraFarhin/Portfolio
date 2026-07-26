@@ -4,9 +4,9 @@ milestone: v1.0
 milestone_name: milestone
 current_phase: 2
 current_phase_name: Content Layer & Case-Study Template
-status: planning
-stopped_at: Phase 2 context updated (template fidelity + editability confirmed)
-last_updated: "2026-07-24T12:51:13.486Z"
+status: executing
+stopped_at: Phase 02 UI-SPEC approved
+last_updated: "2026-07-26T04:56:07.439Z"
 last_activity: 2026-07-24
 last_activity_desc: Phase 01 complete, transitioned to Phase 2
 progress:
@@ -29,7 +29,7 @@ See: .planning/PROJECT.md (updated 2026-07-24)
 
 Phase: 2 — Content Layer & Case-Study Template
 Plan: Not started
-Status: Ready to plan
+Status: Ready to execute
 Last activity: 2026-07-24 — Phase 01 complete, transitioned to Phase 2
 
 Progress: [████████████████████] 7/7 plans (100%)
@@ -94,6 +94,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-07-24T12:51:13.475Z
-Stopped at: Phase 2 context updated (template fidelity + editability confirmed)
-Resume file: .planning/phases/02-content-layer-case-study-template/02-CONTEXT.md
+Last session: 2026-07-24T13:19:14.745Z
+Stopped at: Phase 02 UI-SPEC approved
+Resume file: .planning/phases/02-content-layer-case-study-template/02-UI-SPEC.md
