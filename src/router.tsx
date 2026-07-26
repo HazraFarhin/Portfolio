@@ -10,7 +10,7 @@ import NotFoundRoute from './routes/not-found';
  *
  * Phase 2 additions (D-11):
  * - `case-study/:slug` — renders CaseStudyPage for any matched slug,
- *   including dotted slugs like `astrosure.ai` and `adreport.io` (T-02-15)
+ *   including slugs that contain dots (T-02-15)
  * - `*` catch-all — renders NotFoundRoute for any unmatched path (T-02-16),
  *   including an empty `/case-study/` segment that has no `:slug` to match
  */
