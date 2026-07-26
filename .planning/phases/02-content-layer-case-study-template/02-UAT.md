@@ -1,5 +1,5 @@
 ---
-status: complete
+status: diagnosed
 phase: 02-content-layer-case-study-template
 source: [02-01-SUMMARY.md, 02-02-SUMMARY.md, 02-03-SUMMARY.md, 02-04-SUMMARY.md, 02-05-SUMMARY.md, 02-06-SUMMARY.md, 02-07-SUMMARY.md, 02-08-SUMMARY.md, 02-09-SUMMARY.md]
 started: 2026-07-26T06:19:02Z
@@ -76,5 +76,11 @@ skipped: 0
   reason: "User reported: I see the challenge section with \"the challenge\" as the title and body text"
   severity: major
   test: 7
-  artifacts: []
-  missing: []
+  root_cause: "Challenge.tsx's blockquote component (italic + border-l-2) is correctly wired, but no case-study content file uses blockquote markdown (`> ...`) in its Challenge body -- all 6 files (cad.md, mashreq.md, astrosure.ai.md, adreport.io.md, tata-capital-ai-interface.md, verzion-cloud-migration.md) write the Challenge section as a plain bullet list. The pull-quote path is unreachable with current content, so it renders as plain text as observed."
+  artifacts:
+    - path: "src/components/case-study/Challenge.tsx"
+      issue: "Component logic is correct; not a code bug"
+    - path: "src/content/case-studies/*.md"
+      issue: "No file's Challenge section contains a blockquote line, so the styled pull-quote never renders"
+  missing:
+    - "Add a blockquote (`> ...`) line to at least one case study's Challenge section content so the pull-quote styling is exercised and visible"
