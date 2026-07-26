@@ -33,6 +33,8 @@ order: 5
 - The dashboard's information hierarchy buried frequently used data beneath rarely used controls
 - Working solo meant balancing design decisions against engineering and data constraints without a dedicated PM
 
+> The metrics campaign managers needed were always in the data -- they just weren't ever where managers were looking.
+
 ## Process
 
 ### 1. Discovery & Research

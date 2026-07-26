@@ -33,6 +33,8 @@ order: 2
 - Financial services users expected a higher bar of transparency than typical consumer AI products
 - Existing patterns for AI-driven UI within the product were inconsistent and easy to misread
 
+> Trust in an AI recommendation starts with understanding it, not just seeing it.
+
 ## Process
 
 ### 1. Discovery & Research

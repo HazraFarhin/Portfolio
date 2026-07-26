@@ -33,6 +33,8 @@ order: 1
 - Critical status information was scattered across several screens, increasing the risk of missed steps
 - The tool's technical language didn't match how IT teams actually described their own workflows
 
+> IT teams didn't need more information about the migration -- they needed to stop hunting for it across five different screens.
+
 ## Process
 
 ### 1. Discovery & Research
