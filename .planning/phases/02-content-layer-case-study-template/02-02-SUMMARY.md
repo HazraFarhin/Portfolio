@@ -133,3 +133,7 @@ None - no external service configuration required. These are static content file
 ---
 *Phase: 02-content-layer-case-study-template*
 *Completed: 2026-07-26*
+
+## Self-Check: PASSED
+
+All 6 content files and the SUMMARY.md were confirmed present on disk; all 3 commits (2ddc2c6, 1a0ad2e, b3d4be0) confirmed present in git log.
