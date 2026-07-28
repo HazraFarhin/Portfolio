@@ -22,17 +22,6 @@ describe('CaseStudyPage', () => {
     // Wait for lazy content if needed
     const headings = await screen.findAllByRole('heading', { level: 2 });
     const h2Texts = headings.map((h) => h.textContent);
-    // Check the 8 body section headings are present in the correct order
-    const expectedOrder = [
-      'Overview',       // rendered inside Card (no h2? -- Overview uses its own label not Heading)
-      'Tools Used',
-      'Outcome & Impact',
-      'The Challenge',
-      'Process',
-      'Solution',
-      'Learnings & Reflections',
-      'Next Project',
-    ];
     // Verify all 7 section headings appear (Overview is actually inside a card without its own h2)
     expect(h2Texts).toContain('Tools Used');
     expect(h2Texts).toContain('Outcome & Impact');
