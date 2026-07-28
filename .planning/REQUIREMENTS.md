@@ -18,10 +18,10 @@
 
 ### Case Studies
 
-- [ ] **CASE-01**: User can navigate to a full case-study page for each of the 6 featured projects
+- [x] **CASE-01**: User can navigate to a full case-study page for each of the 6 featured projects
 - [x] **CASE-02**: Each case-study page displays Overview, Tools Used, Outcome & Impact, Challenge, Process, Solution, and Learnings & Reflections sections per `Project Page- Template.md`
-- [ ] **CASE-03**: Each case-study page states role/outcome visibly near the top so it can be skimmed in seconds
-- [ ] **CASE-04**: Case-study content is stored as file-based, typed data (e.g. Markdown+frontmatter) so adding a new case study is a content-only change
+- [x] **CASE-03**: Each case-study page states role/outcome visibly near the top so it can be skimmed in seconds
+- [x] **CASE-04**: Case-study content is stored as file-based, typed data (e.g. Markdown+frontmatter) so adding a new case study is a content-only change
 
 ### Contact & Resume
 
@@ -85,10 +85,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | HOME-06 | Phase 3 | Pending |
 | HOME-07 | Phase 3 | Pending |
 | HOME-08 | Phase 3 | Pending |
-| CASE-01 | Phase 2 | Pending |
+| CASE-01 | Phase 2 | Complete |
 | CASE-02 | Phase 2 | Complete |
-| CASE-03 | Phase 2 | Pending |
-| CASE-04 | Phase 2 | Pending |
+| CASE-03 | Phase 2 | Complete |
+| CASE-04 | Phase 2 | Complete |
 | CONT-01 | Phase 4 | Pending |
 | CONT-02 | Phase 4 | Pending |
 | CONT-03 | Phase 4 | Pending |
