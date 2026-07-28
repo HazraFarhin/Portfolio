@@ -1,7 +1,7 @@
 ---
 phase: 01-foundation-motion-infrastructure
 verified: 2026-07-24T18:00:00Z
-status: human_needed
+status: passed
 score: 4/4 must-haves verified
 behavior_unverified: 1
 overrides_applied: 0
@@ -9,18 +9,22 @@ re_verification:
   previous_status: gaps_found
   previous_score: 2/4
   gaps_closed:
+
     - "Success Criterion #3 (prefers-reduced-motion disables non-essential motion, no per-component opt-in) -- MotionProvider's Lenis-instantiation useEffect is now gated by `if (prefersReducedMotion) return;` with `[prefersReducedMotion]` in its dependency array. Confirmed by direct source read of the fix (commit ac4e3ca), 3 new passing behavioral tests (mount gating, StrictMode mount gating, mid-session toggle teardown/re-init symmetry), and independent re-confirmation in 01-REVIEW.md (prior WR-01 traced clean against the diff)."
   gaps_remaining: []
   regressions: []
 behavior_unverified_items:
+
   - truth: "A demo/placeholder route exhibits GSAP + Lenis-driven smooth-scroll and scroll-triggered reveal motion without breaking native keyboard navigation or scroll-to-anchor behavior (ROADMAP Success Criterion #2)"
     test: "Run `npm run dev`, open the Hero route (/) in a real browser. Tab through focusable elements (the CTA anchor) and confirm correct focus order + a visible focus-visible ring. Click the CTA (href=\"#hero\") and observe the actual scroll behavior."
     expected: "Keyboard tab order reaches the CTA anchor with a visible focus-visible ring (code-level evidence -- `focus-visible:outline` classes on Button, no tabindex manipulation, no focus-trapping wrapper -- strongly supports this, but real tab order/visible-ring rendering is a rendering fact jsdom cannot confirm). Clicking the CTA will produce a native, instant browser anchor-jump to #hero, NOT a Lenis-eased smooth scroll -- confirmed by source trace (see Gaps Summary) -- a human should judge whether this reads as an acceptable, reference-consistent native jump or a jarring motion inconsistency in context."
     why_human: "jsdom cannot render real focus rings/tab order, and whether an instant native jump against an otherwise Lenis-smoothed page 'feels' broken vs. acceptable is a UX judgment call, not a pass/fail code check."
 human_verification:
+
   - test: "Run `npm run dev`, open the Hero route (/) in a real browser. Tab through focusable elements and confirm the CTA anchor receives keyboard focus in the correct order with a visible focus-visible ring."
     expected: "Tab order reaches the CTA; a visible focus ring renders per the `focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent` classes already present on Button."
     why_human: "jsdom cannot render or observe real browser focus-visible rings or tab order."
+
   - test: "Click the CTA (href=\"#hero\") in a real browser and observe whether the resulting scroll (a native, instant anchor-jump, since Lenis's `anchors` option is not enabled) feels acceptable in context, or reads as a jarring break from the page's otherwise Lenis-smoothed scroll motion."
     expected: "A human judgment call on whether the native jump is acceptable (it matches the Axisform reference template's own behavior -- see Gaps Summary -- and does not throw, error, or visibly desync scroll position in the idle-click case per source trace of Lenis's onNativeScroll resync logic) or whether it should be closed by adding `anchors: true` to the Lenis constructor in a follow-up."
     why_human: "This is a UX/visual judgment, not a correctness defect -- no code path is broken, but 'matches the intended motion language' is a subjective call the reviewer and this verifier cannot make final on behalf of the project owner."

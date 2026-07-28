@@ -19,7 +19,8 @@ A recruiter, hiring manager, or prospective client can understand Hazra's design
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ User experiences GSAP/Lenis-driven scroll motion matching the Axisform reference's language without breaking native scroll/keyboard navigation (QUAL-01) — Phase 1
+- ✓ User with `prefers-reduced-motion` enabled sees all non-essential motion disabled automatically (QUAL-02) — Phase 1
 
 ### Active
 
@@ -70,6 +71,9 @@ A recruiter, hiring manager, or prospective client can understand Hazra's design
 | File-based content for case studies (no headless CMS) | Keeps v1 simple and cost-free; copy is being added incrementally per project anyway | — Pending |
 | Contact form wired to an email service, not a custom backend | No backend to maintain; standard pattern for static/React sites | — Pending |
 | Ship first 6 case studies per IA order; defer remaining 5 | Matches user's own IA plan (top 6 on home + "see more"); copy for the rest isn't written | — Pending |
+| Reduced-motion detection centralized in one hook (`usePrefersReducedMotion`), consumed internally by `MotionProvider` | No future motion hook should re-implement its own `matchMedia` check | ✓ Phase 1 |
+| Lenis instantiation gated on `prefersReducedMotion`, re-running (destroy + re-init) on toggle | Original implementation only gated the GSAP reveal, not Lenis itself — a real gap closed via 01-07-PLAN.md before phase sign-off | ✓ Phase 1 |
+| CTA anchor-click uses native browser anchor-jump, not Lenis-intercepted scroll | Lenis's `anchors` option is deliberately left unset in `MotionProvider.tsx`; matches Axisform reference behavior, no lasting scroll desync — confirmed acceptable in UAT | ✓ Phase 1 |
 
 ## Evolution
 
@@ -89,4 +93,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-21 after initialization*
+*Last updated: 2026-07-24 after Phase 1*
