@@ -173,3 +173,7 @@ None - no external service configuration required.
 ---
 *Phase: 03-homepage-build*
 *Completed: 2026-07-30*
+
+## Self-Check: PASSED
+
+All 11 created/modified files confirmed present on disk; all 7 commit hashes (4ea714e, 1f55516, fa4bc82, 626db21, cb3b2c7, 1ac9b6f, 25f5da1) confirmed present in `git log --oneline --all`.
