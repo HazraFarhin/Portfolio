@@ -14,7 +14,7 @@
 - [x] **HOME-05**: User can view a "How I Work" section describing process (not framed as "services")
 - [x] **HOME-06**: User can view a "Skills & Tools" section
 - [x] **HOME-07**: User can view a compact "About" section (not a separate page)
-- [ ] **HOME-08**: User can view a footer with résumé download link, contact info, and social links (LinkedIn, Behance)
+- [x] **HOME-08**: User can view a footer with résumé download link, contact info, and social links (LinkedIn, Behance)
 
 ### Case Studies
 
@@ -28,7 +28,7 @@
 - [ ] **CONT-01**: User can submit a 3-field contact form ("What are you working on?", Email, "What needs to become clearer?") and have it delivered to Hazra's inbox via an email service
 - [ ] **CONT-02**: User receives clear success/error feedback after submitting the contact form
 - [ ] **CONT-03**: User can download Hazra's résumé as a PDF
-- [ ] **CONT-04**: User can reach Hazra directly via email, LinkedIn, and Behance links in the footer
+- [x] **CONT-04**: User can reach Hazra directly via email, LinkedIn, and Behance links in the footer
 
 ### Motion, Performance & Accessibility
 
@@ -84,7 +84,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | HOME-05 | Phase 3 | Complete |
 | HOME-06 | Phase 3 | Complete |
 | HOME-07 | Phase 3 | Complete |
-| HOME-08 | Phase 3 | Pending |
+| HOME-08 | Phase 3 | Complete |
 | CASE-01 | Phase 2 | Complete |
 | CASE-02 | Phase 2 | Complete |
 | CASE-03 | Phase 2 | Complete |
@@ -92,7 +92,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-01 | Phase 4 | Pending |
 | CONT-02 | Phase 4 | Pending |
 | CONT-03 | Phase 4 | Pending |
-| CONT-04 | Phase 3 | Pending |
+| CONT-04 | Phase 3 | Complete |
 | QUAL-01 | Phase 1 | Complete |
 | QUAL-02 | Phase 1 | Complete |
 | QUAL-03 | Phase 5 | Pending |
