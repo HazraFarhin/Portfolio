@@ -7,7 +7,7 @@
 
 ### Homepage
 
-- [ ] **HOME-01**: User can view a hero section stating role, specialization, and availability status above the fold
+- [x] **HOME-01**: User can view a hero section stating role, specialization, and availability status above the fold
 - [x] **HOME-02**: User can view a proof strip with concrete stats (years, industries, regions, measurable outcome)
 - [x] **HOME-03**: User can view a "Selected Work" grid showing the first 6 featured case studies in Information Architecture order (cad, verzion-cloud-migration, tata-capital-ai-interface, mashreq, astrosure.ai, adreport.io)
 - [x] **HOME-04**: User can reveal the remaining 5 case studies (riyaah, icici-bank-atm-kiosk, ambit, northernarc, citrus) via a "see more" expansion
@@ -77,7 +77,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HOME-01 | Phase 3 | Pending |
+| HOME-01 | Phase 3 | Complete |
 | HOME-02 | Phase 3 | Complete |
 | HOME-03 | Phase 3 | Complete |
 | HOME-04 | Phase 3 | Complete |
