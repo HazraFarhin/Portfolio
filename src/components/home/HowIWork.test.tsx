@@ -43,12 +43,12 @@ describe('HowIWork', () => {
   it('renders all 5 loop step names and descriptions inside the same section', () => {
     const { container } = render(<HowIWork />);
     const section = container.querySelector('#how-i-work');
+    const stepHeadings = container.querySelectorAll('h3');
 
-    howIWorkContent.loopSteps.forEach((step) => {
-      const heading = screen.getByText((_, element) =>
-        element?.textContent?.includes(step.name) ?? false
-      );
-      expect(section?.contains(heading)).toBe(true);
+    expect(stepHeadings).toHaveLength(5);
+    howIWorkContent.loopSteps.forEach((step, index) => {
+      expect(stepHeadings[index].textContent).toContain(step.name);
+      expect(section?.contains(stepHeadings[index])).toBe(true);
       expect(screen.getByText(step.description)).toBeInTheDocument();
     });
   });
