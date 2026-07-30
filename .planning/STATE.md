@@ -5,12 +5,12 @@ milestone_name: milestone
 current_phase: 3
 current_phase_name: Homepage Build
 status: planning
-stopped_at: Completed 02-10-PLAN.md
-last_updated: "2026-07-28T04:15:13.087Z"
+stopped_at: Phase 3 context gathered
+last_updated: "2026-07-30T04:53:38.619Z"
 last_activity: 2026-07-28
 last_activity_desc: Phase 02 complete, transitioned to Phase 3
 progress:
-  total_phases: 2
+  total_phases: 3
   completed_phases: 2
   total_plans: 17
   completed_plans: 17
@@ -84,6 +84,7 @@ None yet.
 
 - Formspree vs. Resend for the contact form not yet finalized — confirm before Phase 4 planning (Resend requires a serverless function; Formspree keeps the site fully static)
 - Homepage copy (`Homepage Copy V2.md`) is an explicit rough draft — Phase 3 must keep copy in a data module, not hardcoded in JSX, since a rewrite is expected
+- **Phase 4 MUST-DO (from Phase 3 CONTEXT.md D-11):** Phase 3's "see more" cards link to the 5 deferred case-study slugs (riyaah, icici-bank-atm-kiosk, ambit, northernarc, citrus) via a coming-soon route — this is a deliberately accepted, temporary conflict with DEPL-03 ("not linked from any page"). Phase 4 planning must remove/guard these links as part of its own DEPL-03 work.
 
 ## Deferred Items
 
@@ -97,6 +98,6 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-07-26T10:48:53.115Z
-Stopped at: Completed 02-10-PLAN.md
-Resume file: None
+Last session: 2026-07-30T04:53:38.609Z
+Stopped at: Phase 3 context gathered
+Resume file: .planning/phases/03-homepage-build/03-CONTEXT.md
