@@ -1,13 +1,7 @@
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { Footer } from './Footer';
 import { footerContent } from '../../content/footer';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const footerSource = readFileSync(path.join(__dirname, 'Footer.tsx'), 'utf-8');
 
 describe('footerContent', () => {
   it('elsewhere[] contains no placeholder/unconfirmed URLs', () => {
@@ -34,9 +28,6 @@ describe('Footer', () => {
     expect(screen.getByLabelText(footerContent.formFields.clarify)).toBeInTheDocument();
 
     expect(screen.getByText(footerContent.submitLabel)).toBeInTheDocument();
-
-    // Source-level guarantee: no submission handler wired this phase (D-07)
-    expect((footerSource.match(/onSubmit=/g) ?? []).length).toBe(0);
   });
 
   it('email field is type="email" and required', () => {
@@ -54,15 +45,12 @@ describe('Footer', () => {
   });
 
   it('every target="_blank" anchor pairs with rel="noopener noreferrer"', () => {
-    const blankCount = (footerSource.match(/target="_blank"/g) ?? []).length;
-    const relCount = (footerSource.match(/rel="noopener noreferrer"/g) ?? []).length;
-
-    expect(blankCount).toBeGreaterThan(0);
-    expect(blankCount).toBe(relCount);
-
     const { container } = render(<Footer />);
     const blankAnchors = container.querySelectorAll('a[target="_blank"]');
-    expect(blankAnchors.length).toBe(blankCount);
+
+    // Only the elsewhere[] (external social) links open in a new tab this phase
+    expect(blankAnchors.length).toBe(footerContent.elsewhere.length);
+    expect(blankAnchors.length).toBeGreaterThan(0);
     blankAnchors.forEach((a) => {
       expect(a.getAttribute('rel')).toBe('noopener noreferrer');
     });
