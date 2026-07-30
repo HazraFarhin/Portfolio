@@ -107,3 +107,9 @@ None - no external service configuration required.
 ---
 *Phase: 03-homepage-build*
 *Completed: 2026-07-30*
+
+## Self-Check: PASSED
+
+- FOUND: public/resume.pdf (valid PDF document, 1 page)
+- FOUND: commit 20af319 (Task 1 — resume.pdf added)
+- FOUND: commit bc1a2da (SUMMARY.md committed)
