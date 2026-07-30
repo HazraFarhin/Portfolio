@@ -5,6 +5,11 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   as?: ElementType;
   className?: string;
   children: ReactNode;
+  // Optional so `as="a"` usages (e.g. Nav's wordmark/links, Phase 3) can
+  // pass a real href through `...rest` -- HTMLAttributes<HTMLElement>
+  // deliberately omits it since href is anchor-specific
+  // (AnchorHTMLAttributes), not part of the generic HTML attribute set.
+  href?: string;
 }
 
 export function Label({ as: Tag = 'span', className, children, ...rest }: TypographyProps) {
