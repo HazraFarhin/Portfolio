@@ -12,8 +12,8 @@
 - [x] **HOME-03**: User can view a "Selected Work" grid showing the first 6 featured case studies in Information Architecture order (cad, verzion-cloud-migration, tata-capital-ai-interface, mashreq, astrosure.ai, adreport.io)
 - [x] **HOME-04**: User can reveal the remaining 5 case studies (riyaah, icici-bank-atm-kiosk, ambit, northernarc, citrus) via a "see more" expansion
 - [x] **HOME-05**: User can view a "How I Work" section describing process (not framed as "services")
-- [ ] **HOME-06**: User can view a "Skills & Tools" section
-- [ ] **HOME-07**: User can view a compact "About" section (not a separate page)
+- [x] **HOME-06**: User can view a "Skills & Tools" section
+- [x] **HOME-07**: User can view a compact "About" section (not a separate page)
 - [ ] **HOME-08**: User can view a footer with résumé download link, contact info, and social links (LinkedIn, Behance)
 
 ### Case Studies
@@ -82,8 +82,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | HOME-03 | Phase 3 | Complete |
 | HOME-04 | Phase 3 | Complete |
 | HOME-05 | Phase 3 | Complete |
-| HOME-06 | Phase 3 | Pending |
-| HOME-07 | Phase 3 | Pending |
+| HOME-06 | Phase 3 | Complete |
+| HOME-07 | Phase 3 | Complete |
 | HOME-08 | Phase 3 | Pending |
 | CASE-01 | Phase 2 | Complete |
 | CASE-02 | Phase 2 | Complete |
