@@ -42,3 +42,25 @@ describe('ImagePlaceholder', () => {
     expect(getByText('Cover image — pending')).toBeInTheDocument();
   });
 });
+
+describe('ImagePlaceholder — portrait size (HOME-07, D-13, Pitfall 5)', () => {
+  it('never renders a real <img> element for the portrait size', () => {
+    const { container } = render(<ImagePlaceholder caption="Test caption" size="portrait" />);
+    expect(container.querySelector('img')).toBeNull();
+  });
+
+  it('applies the portrait aspect-ratio/max-height classes, distinct from banner/stage/centerpiece', () => {
+    const { container } = render(<ImagePlaceholder caption="Test caption" size="portrait" />);
+    const className = container.firstElementChild?.className ?? '';
+
+    expect(className).toContain('aspect-[3/4]');
+    expect(className).toContain('max-h-[320px]');
+  });
+
+  it('renders the caption text via a Label for the portrait size', () => {
+    const { getByText } = render(
+      <ImagePlaceholder caption="Hazra Farhin — photo pending" size="portrait" />
+    );
+    expect(getByText('Hazra Farhin — photo pending')).toBeInTheDocument();
+  });
+});
