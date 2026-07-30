@@ -37,6 +37,10 @@ This phase assembles the single-scroll homepage on top of Phase 1's motion/routi
 - **D-15:** A real résumé source file exists at the repo root: `Hajra Farhin Resume UX.docx` (11KB, real content — not a placeholder). Phase 3 converts this to a PDF and places it at a public path (e.g. `public/resume.pdf`), wiring the footer's résumé link to the real converted file directly — NOT a placeholder path. This means HOME-08's résumé link ships fully functional in Phase 3, ahead of Phase 4's CONT-03 (which now only needs to verify the already-real download works end-to-end).
 - **D-16:** Footer content (contact info, LinkedIn/Behance/email links per CONT-04, legal links) follows "12/Footer" from `Homepage Copy V2.md` as-is: email (hazrafarhinwork@gmail.com), phone, location, LinkedIn/Behance/Website under "Elsewhere," Privacy Policy/Terms under "Legal."
 
+### Post-Research Clarifications (resolved 2026-07-30, after RESEARCH.md flagged them as open questions)
+- **D-14 clarified:** Skills & Tools tool chips are aggregated from the case-study frontmatter `tags` field only (10 discipline/industry values: UX, UI, InsurTech, Dashboard, Banking, Mobile, Design System, Enterprise, Cloud, AI Interface) — NOT from the unstructured `Tools Used` Markdown body text. D-14's own "e.g. Figma, FigJam" example is superseded/incorrect; no new Markdown parsing is needed.
+- **D-06 clarified:** The persistent nav bar is scoped to the homepage only (mounted inside `home.tsx`, plain `#id` anchor hrefs) — it does NOT appear on `/case-study/:slug` pages. Matches this phase's stated boundary; a site-wide nav is an explicit out-of-scope follow-up, not silently expanded scope.
+
 ### Claude's Discretion
 - Exact visual placement/order of the nav bar, Field Archive gallery, and Studio Method action-words relative to the 7 IA-locked sections.
 - Exact wording of the condensed About bio (within the "Hero statement + PROJECT.md bio" source constraint from D-12).
