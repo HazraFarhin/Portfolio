@@ -113,7 +113,33 @@ Plans:
   3. Selected Work shows the 6 featured case studies in IA order, pulled from the Phase 2 content loader (not hardcoded), and a "see more" control reveals the remaining 5 as entries
   4. The footer offers a résumé download link, contact info, and direct LinkedIn/Behance/email links that all navigate correctly
 
-**Plans**: TBD
+**Plans**: 7 plans
+Plans:
+
+- [ ] 03-01-PLAN.md — Nav bar + Proof Strip + Field Archive (D-06, HOME-02, D-04)
+- [ ] 03-02-PLAN.md — Selected Work (real 6 + deferred 5 toggle) + How I Work (HOME-03/04/05)
+- [ ] 03-03-PLAN.md — Skills & Tools + About (HOME-06/07)
+- [ ] 03-04-PLAN.md — Coming-soon route + router wiring for 5 deferred slugs (D-10/D-11)
+- [ ] 03-05-PLAN.md — Checkpoint: résumé PDF conversion + real social URLs (D-15, CONT-04)
+- [ ] 03-06-PLAN.md — Contact/Brief form UI + Footer (HOME-08, CONT-04)
+- [ ] 03-07-PLAN.md — Home route integration capstone (mounts all sections, repoints Hero CTA)
+
+**Wave 1**
+
+- [ ] 03-01-PLAN.md — Nav + Proof Strip + Field Archive
+- [ ] 03-02-PLAN.md — Selected Work + How I Work
+- [ ] 03-03-PLAN.md — Skills & Tools + About
+- [ ] 03-04-PLAN.md — Coming-soon route + router wiring
+- [ ] 03-05-PLAN.md — Checkpoint: résumé PDF + social URLs
+
+**Wave 2** *(blocked on 03-05 completion)*
+
+- [ ] 03-06-PLAN.md — Contact/Brief + Footer
+
+**Wave 3** *(blocked on Wave 1 + 03-06 completion)*
+
+- [ ] 03-07-PLAN.md — Home route integration (capstone)
+
 **UI hint**: yes
 
 ### Phase 4: Contact Form & Deployment Hardening
