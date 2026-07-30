@@ -10,7 +10,7 @@ import { Label } from '../ui/Typography';
  * Blocks").
  */
 
-export type ImagePlaceholderSize = 'banner' | 'stage' | 'centerpiece';
+export type ImagePlaceholderSize = 'banner' | 'stage' | 'centerpiece' | 'portrait';
 
 interface ImagePlaceholderProps {
   caption: string;
@@ -27,6 +27,8 @@ const sizeClasses: Record<ImagePlaceholderSize, string> = {
   stage: 'aspect-video max-h-[200px]',
   // Solution images (2x per page) -- the largest placeholder size on the page.
   centerpiece: 'aspect-[4/3] max-h-[360px]',
+  // About headshot (Phase 3) -- compact portrait aspect.
+  portrait: 'aspect-[3/4] max-h-[320px]',
 };
 
 export function ImagePlaceholder({ caption, size }: ImagePlaceholderProps) {
