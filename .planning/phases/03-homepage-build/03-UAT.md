@@ -3,7 +3,7 @@ status: complete
 phase: 03-homepage-build
 source: [03-VERIFICATION.md]
 started: 2026-07-30T16:15:00Z
-updated: 2026-07-31T09:00:00Z
+updated: 2026-07-31T09:15:00Z
 ---
 
 ## Current Test
@@ -22,26 +22,18 @@ result: pass
 
 ### 3. Full homepage scroll order is visually confirmed correct in a real browser
 expected: Section order visually matches Hero → Proof Strip → Selected Work → Field Archive → How I Work → Skills & Tools → About → Footer, with no visual/layout breakage between sections, and the persistent Nav stays fixed throughout. Bonus check: Nav links, Hero CTA, and Selected Work "see more" toggle all work as expected when clicked.
-result: issue
-reported: "pass but it's all loading at once"
-severity: major
+result: pass
+note: "Initially reported as 'loading all at once' — root cause diagnosed as browser/OS 'prefers-reduced-motion' being enabled during the test session (correct QUAL-02 behavior, not a defect). User confirmed the setting was on and re-tested after disabling it; scroll-reveal now animates as expected. See .planning/debug/scroll-reveal-not-animating.md."
 
 ## Summary
 
 total: 3
-passed: 2
-issues: 1
+passed: 3
+issues: 0
 pending: 0
 skipped: 0
 blocked: 0
 
 ## Gaps
 
-- gap_id: G-03-3
-  truth: "Sections reveal progressively on scroll via the centralized GSAP/Lenis motion system (useScrollReveal), matching Phase 1's established scroll-reveal pattern"
-  status: failed
-  reason: "User reported: pass but it's all loading at once — section order is correct, but scroll-reveal animation isn't triggering; everything renders visible immediately instead of animating in as the user scrolls"
-  severity: major
-  test: 3
-  artifacts: []
-  missing: []
+<!-- G-03-3 investigated and resolved as a false positive (browser reduced-motion setting), not a code defect. See .planning/debug/scroll-reveal-not-animating.md for the full diagnosis. -->
