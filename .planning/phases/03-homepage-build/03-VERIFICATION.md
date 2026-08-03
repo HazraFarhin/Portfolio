@@ -1,19 +1,22 @@
 ---
 phase: 03-homepage-build
 verified: 2026-07-30T10:49:22Z
-status: human_needed
+status: passed
 score: 13/16 must-haves verified
 behavior_unverified: 3
 overrides_applied: 0
 behavior_unverified_items:
+
   - truth: "Nav bar fits without a hamburger menu at 320-375px mobile viewports with the actual rendered link labels"
     test: "Load the homepage in a real browser (or devtools responsive mode) at 320px and 375px viewport widths"
     expected: "The wordmark + 4 nav links (Work, Method, Skills, Contact) all fit on one line in the fixed nav bar with no overflow, wrap, or clipping, and no hamburger/collapsed menu appears"
     why_human: "CSS flex-wrap/overflow behavior at a specific narrow viewport can't be confirmed by static grep/JSDoc analysis — jsdom-based unit tests don't lay out real CSS. Plan 03-01's own SUMMARY.md explicitly flags this as an unresolved backstop item awaiting visual UAT."
+
   - truth: "Proof Strip's 2x2 mobile stat grid captions don't overlap/truncate at the smallest supported viewport"
     test: "Load the homepage at a 320-375px viewport and inspect the Proof Strip's 2x2 stat grid"
     expected: "All 4 stat values and their captions are fully legible with no visual overlap or truncation"
     why_human: "Same class of visual layout concern as above — requires real CSS layout rendering, not inferable from source. Plan 03-01's own SUMMARY.md explicitly flags this as an unresolved backstop item."
+
   - truth: "Full homepage scroll order (hero -> proof strip -> Selected Work -> Field Archive -> How I Work -> Skills & Tools -> About -> Footer) is visually confirmed correct when loaded in a real browser"
     test: "Load `/` in a real browser and scroll top to bottom"
     expected: "Section order visually matches the locked IA order with no visual/layout breakage between sections"

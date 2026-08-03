@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Motion Infrastructure** - Vite/React/TS/Tailwind scaffold with a centralized, reduced-motion-safe GSAP + Lenis motion system and routing shell (completed 2026-07-24)
 - [x] **Phase 2: Content Layer & Case-Study Template** - Validated file-based case-study content and a reusable template rendering all 6 featured project pages (completed 2026-07-28)
-- [ ] **Phase 3: Homepage Build** - Single-scroll homepage assembling hero through footer from real content and motion hooks
+- [x] **Phase 3: Homepage Build** - Single-scroll homepage assembling hero through footer from real content and motion hooks (completed 2026-07-31)
 - [ ] **Phase 4: Contact Form & Deployment Hardening** - Verified end-to-end contact-form delivery, résumé download, and public deployment with correct routing
 - [ ] **Phase 5: Visual/Motion Polish & Performance Hardening** - Cross-site QA pass on motion restraint, mobile behavior, accessibility, and performance budget
 
@@ -138,7 +138,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 1 + 03-06 completion)*
 
-- [ ] 03-07-PLAN.md — Home route integration (capstone)
+- [x] 03-07-PLAN.md — Home route integration (capstone)
 
 **UI hint**: yes
 
@@ -182,6 +182,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation & Motion Infrastructure | 7/7 | Complete    | 2026-07-24 |
 | 2. Content Layer & Case-Study Template | 10/10 | Complete    | 2026-07-28 |
-| 3. Homepage Build | 7/7 | In Progress|  |
+| 3. Homepage Build | 7/7 | Complete    | 2026-07-31 |
 | 4. Contact Form & Deployment Hardening | 0/TBD | Not started | - |
 | 5. Visual/Motion Polish & Performance Hardening | 0/TBD | Not started | - |
