@@ -410,17 +410,19 @@ export default {
 | A2 | Exact shape of Resend's 403 error object when sending to a non-owner address from an unverified domain (message text/format) | Common Pitfalls (Pitfall 2) | Low — the *existence* and cause of the restriction is confirmed via Resend's own knowledge-base article; only the precise error string wasn't independently reproduced this session (no live Resend account call was made) |
 | A3 | Hand-maintained static `sitemap.xml` is preferable to a generator library for this project's scale | Standard Stack (Alternatives Considered) | Low — this is explicitly left to Claude's Discretion in CONTEXT.md, and the recommendation is a simplicity judgment call, not a factual claim requiring verification |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Exact `api/contact.ts` handler style (Web Standard `fetch` export vs. classic `(request, response)` + `@vercel/node`)**
    - What we know: Both are officially supported; the `fetch` export needs no extra dependency and is the pattern Vercel's own docs lead with for "Create a Node.js function in /api."
    - What's unclear: Whether the planner prefers the classic style for familiarity/parity with any existing Express-like mental model.
    - Recommendation: Default to the `fetch` export (Pattern 1) — CONTEXT.md's "Claude's Discretion" section explicitly leaves "exact serverless function file structure/naming" open, and the dependency-free option is simpler.
+   - **RESOLVED:** Planner adopted the `fetch` export in `04-02-PLAN.md` Task 1, per the recommendation above.
 
 2. **Whether to add a third TypeScript project reference so `tsc -b` covers `/api`**
    - What we know: Vercel's own deploy pipeline will type-check/transpile `/api` independently of this repo's local `tsc -b` regardless of what's decided here.
    - What's unclear: Whether the team wants local `npm run build`/CI to also catch `/api` type errors before deploy (see Pitfall 4).
    - Recommendation: Add the reference (low cost, catches errors earlier) unless the planner judges it out of scope for this phase's size.
+   - **RESOLVED:** Planner added `tsconfig.api.json` in `04-02-PLAN.md` Task 3, per the recommendation above.
 
 ## Environment Availability
 
