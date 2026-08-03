@@ -155,7 +155,31 @@ Plans:
   4. The deployed site is publicly reachable at a Vercel/Netlify URL, and directly loading or refreshing a case-study route (e.g. `/case-study/mashreq`) works without a 404
   5. The 5 deferred case-study slugs (riyaah, icici-bank-atm-kiosk, ambit, northernarc, citrus) are not linked from any page and are excluded from sitemap/indexing
 
-**Plans**: TBD
+**Plans**: 6 plans
+Plans:
+
+- [ ] 04-01-PLAN.md — Package legitimacy checkpoint + install resend (D-01)
+- [ ] 04-02-PLAN.md — api/contact.ts serverless function + vercel.json SPA rewrite (D-04, D-02)
+- [ ] 04-03-PLAN.md — Footer.tsx real submission handler + honeypot + success/error states (D-09/D-10/D-11/D-12)
+- [ ] 04-04-PLAN.md — Remove Selected Work "see more" + deferred links; mark HOME-04 superseded (D-07/D-08)
+- [ ] 04-05-PLAN.md — robots.txt + sitemap.xml excluding deferred slugs (DEPL-03)
+- [ ] 04-06-PLAN.md — Checkpoint: Vercel connection + live deployment verification (D-06)
+
+**Wave 1**
+
+- [ ] 04-01-PLAN.md — Package legitimacy checkpoint + install resend
+- [ ] 04-03-PLAN.md — Footer.tsx submission handler + honeypot + success/error states
+- [ ] 04-04-PLAN.md — Selected Work simplification + REQUIREMENTS.md update
+- [ ] 04-05-PLAN.md — robots.txt + sitemap.xml
+
+**Wave 2** *(blocked on 04-01 completion)*
+
+- [ ] 04-02-PLAN.md — api/contact.ts + vercel.json + tsconfig.api.json
+
+**Wave 3** *(blocked on 04-02, 04-03, 04-04, 04-05 completion)*
+
+- [ ] 04-06-PLAN.md — Checkpoint: Vercel connection + live deployment verification
+
 **UI hint**: yes
 
 ### Phase 5: Visual/Motion Polish & Performance Hardening

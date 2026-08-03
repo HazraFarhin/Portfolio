@@ -40,18 +40,18 @@ created: 2026-08-03
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
-| 04-xx-xx | TBD | TBD | CONT-01 | T-04-01 | Form submit calls `/api/contact` with 3 field values when honeypot is empty | unit (mock `global.fetch`) | `npx vitest run src/components/home/Footer.test.tsx` | ❌ W0 | ⬜ pending |
-| 04-xx-xx | TBD | TBD | CONT-01 | — | Serverless function delivers a real email end-to-end | manual-only | N/A — verified via `/gsd-verify-work` against live URL | N/A | ⬜ pending |
-| 04-xx-xx | TBD | TBD | CONT-02 | T-04-04 | Success state renders in place after 2xx; error banner renders with preserved field values after non-2xx/network failure | unit (mock `global.fetch` resolved/rejected) | `npx vitest run src/components/home/Footer.test.tsx` | ❌ W0 | ⬜ pending |
-| 04-xx-xx | TBD | TBD | CONT-02 | T-04-02 | Honeypot non-empty → success block renders, `fetch` NOT called | unit (spy on `global.fetch`) | `npx vitest run src/components/home/Footer.test.tsx` | ❌ W0 | ⬜ pending |
-| 04-xx-xx | TBD | TBD | CONT-03 | — | Résumé link downloads a working PDF | manual-only | N/A — verified via `/gsd-verify-work` against live URL | N/A (href/download attr already covered) | ⬜ pending |
-| 04-xx-xx | TBD | TBD | DEPL-01 | — | Site is publicly reachable at a `*.vercel.app` URL | manual-only | N/A — verified via `/gsd-verify-work` | N/A | ⬜ pending |
-| 04-xx-xx | TBD | TBD | DEPL-02 | — | Direct load/refresh of `/case-study/mashreq` returns app shell, not 404 | manual-only | N/A — verified via `/gsd-verify-work` against live URL | N/A | ⬜ pending |
-| 04-xx-xx | TBD | TBD | DEPL-03 | — | Homepage renders no links to the 5 deferred slugs; "see more" toggle is gone | unit | `npx vitest run src/components/home/SelectedWork.test.tsx` | ❌ W0 — rewrite existing assertions | ⬜ pending |
-| 04-xx-xx | TBD | TBD | DEPL-03 | T-04-05 | 5 deferred slugs excluded from `sitemap.xml`; disallowed in `robots.txt` | unit | `npx vitest run src/test/seo.test.ts` | ❌ W0 — new file | ⬜ pending |
+| 04-03-T2 | 04-03 | 1 | CONT-01 | T-04-02 | Form submit calls `/api/contact` with 3 field values when honeypot is empty | unit (mock `global.fetch`) | `npx vitest run src/components/home/Footer.test.tsx` | ❌ W0 | ⬜ pending |
+| 04-06-T2 | 04-06 | 3 | CONT-01 | — | Serverless function delivers a real email end-to-end | manual-only | N/A — verified via `/gsd-verify-work` against live URL | N/A | ⬜ pending |
+| 04-03-T2 | 04-03 | 1 | CONT-02 | — | Success state renders in place after 2xx; error banner renders with preserved field values after non-2xx/network failure | unit (mock `global.fetch` resolved/rejected) | `npx vitest run src/components/home/Footer.test.tsx` | ❌ W0 | ⬜ pending |
+| 04-03-T2 | 04-03 | 1 | CONT-02 | T-04-02 | Honeypot non-empty → success block renders, `fetch` NOT called | unit (spy on `global.fetch`) | `npx vitest run src/components/home/Footer.test.tsx` | ❌ W0 | ⬜ pending |
+| 04-06-T2 | 04-06 | 3 | CONT-03 | — | Résumé link downloads a working PDF | manual-only | N/A — verified via `/gsd-verify-work` against live URL | N/A (href/download attr already covered) | ⬜ pending |
+| 04-06-T1/T2 | 04-06 | 3 | DEPL-01 | — | Site is publicly reachable at a `*.vercel.app` URL | manual-only | N/A — verified via `/gsd-verify-work` | N/A | ⬜ pending |
+| 04-06-T2 | 04-06 | 3 | DEPL-02 | — | Direct load/refresh of `/case-study/mashreq` returns app shell, not 404 | manual-only | N/A — verified via `/gsd-verify-work` against live URL | N/A | ⬜ pending |
+| 04-04-T1 | 04-04 | 1 | DEPL-03 | — | Homepage renders no links to the 5 deferred slugs; "see more" toggle is gone | unit | `npx vitest run src/components/home/SelectedWork.test.tsx` | ❌ W0 — rewrite existing assertions | ⬜ pending |
+| 04-05-T2 | 04-05 | 1 | DEPL-03 | T-04-07 | 5 deferred slugs excluded from `sitemap.xml`; disallowed in `robots.txt` | unit | `npx vitest run src/test/seo.test.ts` | ❌ W0 — new file | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
-*Task IDs and Plan/Wave columns are TBD — the planner fills these in once PLAN.md files are created.*
+*Task ID/Plan/Wave columns filled in per the final plan structure (6 plans, 3 waves — see 04-01 through 04-06 PLAN.md). Threat Ref IDs T-04-01 through T-04-08 are defined across each plan's `<threat_model>` block (04-01: T-04-SC; 04-02: T-04-01/03/04/05; 04-03: T-04-02; 04-04: T-04-06; 04-05: T-04-07; 04-06: T-04-08).*
 
 ---
 
