@@ -10,7 +10,7 @@
 - [x] **HOME-01**: User can view a hero section stating role, specialization, and availability status above the fold
 - [x] **HOME-02**: User can view a proof strip with concrete stats (years, industries, regions, measurable outcome)
 - [x] **HOME-03**: User can view a "Selected Work" grid showing the first 6 featured case studies in Information Architecture order (cad, verzion-cloud-migration, tata-capital-ai-interface, mashreq, astrosure.ai, adreport.io)
-- [x] **HOME-04**: User can reveal the remaining 5 case studies (riyaah, icici-bank-atm-kiosk, ambit, northernarc, citrus) via a "see more" expansion
+- [x] **HOME-04**: ~~User can reveal the remaining 5 case studies (riyaah, icici-bank-atm-kiosk, ambit, northernarc, citrus) via a "see more" expansion~~ — **Superseded by DEPL-03** (Phase 4, CONTEXT.md D-08): the "see more" expansion was removed entirely; the 5 deferred case studies are intentionally not linked from any page.
 - [x] **HOME-05**: User can view a "How I Work" section describing process (not framed as "services")
 - [x] **HOME-06**: User can view a "Skills & Tools" section
 - [x] **HOME-07**: User can view a compact "About" section (not a separate page)
@@ -80,7 +80,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | HOME-01 | Phase 3 | Complete |
 | HOME-02 | Phase 3 | Complete |
 | HOME-03 | Phase 3 | Complete |
-| HOME-04 | Phase 3 | Complete |
+| HOME-04 | Phase 3 | Complete (superseded by DEPL-03) |
 | HOME-05 | Phase 3 | Complete |
 | HOME-06 | Phase 3 | Complete |
 | HOME-07 | Phase 3 | Complete |
