@@ -22,6 +22,11 @@ export interface FooterContent {
     clarify: string;
   };
   submitLabel: string;
+  submittingLabel: string;
+  successHeadline: string;
+  successBody: string;
+  errorHeadline: string;
+  errorBody: string;
   resumeLabel: string;
   resumeHref: string;
   wordmark: string;
@@ -35,6 +40,12 @@ export interface FooterContent {
   bottomLine: string;
 }
 
+// Single source of truth for the contact address, interpolated into
+// contactEmail/contactEmailHref and the success/error copy below so no
+// second literal string ever drifts out of sync (04-UI-SPEC.md Copywriting
+// Contract).
+const CONTACT_EMAIL = 'hazrafarhinwork@gmail.com';
+
 export const footerContent: FooterContent = {
   briefLabel: 'Brief',
   briefIntro:
@@ -45,13 +56,18 @@ export const footerContent: FooterContent = {
     clarify: 'What needs to become clearer?',
   },
   submitLabel: 'Send the Brief →',
+  submittingLabel: 'Sending…',
+  successHeadline: 'Brief received.',
+  successBody: `Thanks for reaching out — I'll get back to you within a couple of days. For anything urgent, email ${CONTACT_EMAIL} directly.`,
+  errorHeadline: "Something didn't send.",
+  errorBody: `Your message wasn't delivered, but nothing's lost — your answers are still here. Check your connection and try again, or email ${CONTACT_EMAIL} directly.`,
   resumeLabel: 'Download Résumé',
   resumeHref: '/resume.pdf',
   wordmark: 'Hazra Farhin',
   tagline:
     'UX/UI Designer building interfaces that reduce friction and hold up to business requirements, across FinTech, commerce, dashboards, and whatever comes next.',
-  contactEmail: 'hazrafarhinwork@gmail.com',
-  contactEmailHref: 'mailto:hazrafarhinwork@gmail.com',
+  contactEmail: CONTACT_EMAIL,
+  contactEmailHref: `mailto:${CONTACT_EMAIL}`,
   contactPhone: '+91 93992 18725',
   contactLocation: 'Bhilai, Chhattisgarh, India (Remote)',
   // Only checkpoint-confirmed URLs from 03-05-SUMMARY.md -- Website omitted
