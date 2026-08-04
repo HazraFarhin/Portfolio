@@ -25,7 +25,7 @@
 
 ### Contact & Resume
 
-- [ ] **CONT-01**: User can submit a 3-field contact form ("What are you working on?", Email, "What needs to become clearer?") and have it delivered to Hazra's inbox via an email service
+- [x] **CONT-01**: User can submit a 3-field contact form ("What are you working on?", Email, "What needs to become clearer?") and have it delivered to Hazra's inbox via an email service
 - [ ] **CONT-02**: User receives clear success/error feedback after submitting the contact form
 - [ ] **CONT-03**: User can download Hazra's résumé as a PDF
 - [x] **CONT-04**: User can reach Hazra directly via email, LinkedIn, and Behance links in the footer
@@ -41,7 +41,7 @@
 ### Deployment
 
 - [ ] **DEPL-01**: Site is deployed and publicly accessible on Vercel or Netlify
-- [ ] **DEPL-02**: Case-study routes work correctly on direct load/refresh (SPA rewrite rules configured)
+- [x] **DEPL-02**: Case-study routes work correctly on direct load/refresh (SPA rewrite rules configured)
 - [ ] **DEPL-03**: The 5 deferred case-study routes are not publicly linked or indexed until their content exists
 
 ## v2 Requirements
@@ -89,7 +89,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CASE-02 | Phase 2 | Complete |
 | CASE-03 | Phase 2 | Complete |
 | CASE-04 | Phase 2 | Complete |
-| CONT-01 | Phase 4 | Pending |
+| CONT-01 | Phase 4 | Complete |
 | CONT-02 | Phase 4 | Pending |
 | CONT-03 | Phase 4 | Pending |
 | CONT-04 | Phase 3 | Complete |
@@ -99,7 +99,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | QUAL-04 | Phase 5 | Pending |
 | QUAL-05 | Phase 5 | Pending |
 | DEPL-01 | Phase 4 | Pending |
-| DEPL-02 | Phase 4 | Pending |
+| DEPL-02 | Phase 4 | Complete |
 | DEPL-03 | Phase 4 | Pending |
 
 **Coverage:**
