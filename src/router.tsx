@@ -16,9 +16,10 @@ import NotFoundRoute from './routes/not-found';
  *   including an empty `/case-study/` segment that has no `:slug` to match
  */
 
-// D-11: Phase 4 MUST delete/guard this whole block as part of its own DEPL-03
-// work (deferred slugs must not be publicly linked/indexed once real content
-// lands).
+// D-07 (Phase 4): these routes are intentionally kept registered as-is. A
+// stray/cached link to `/case-study/riyaah` etc. resolves to the coming-soon
+// page instead of a 404. Only the homepage's inbound links to these routes
+// were removed (see src/components/home/SelectedWork.tsx, Plan 04-04).
 const DEFERRED_SLUGS = ['riyaah', 'icici-bank-atm-kiosk', 'ambit', 'northernarc', 'citrus'] as const;
 const DEFERRED_SLUG_ROUTES = DEFERRED_SLUGS.map((slug) => ({
   path: `case-study/${slug}`,

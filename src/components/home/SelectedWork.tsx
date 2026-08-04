@@ -1,26 +1,23 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
 import { Body, Heading, Label } from '../ui/Typography';
 import { ImagePlaceholder } from '../case-study/ImagePlaceholder';
 import { caseStudies } from '../../content/case-studies/loader';
-import { deferredCaseStudies } from '../../content/case-studies/deferred';
 import { selectedWorkContent } from '../../content/selected-work';
 import { useScrollReveal } from '../../motion/useScrollReveal';
 
 /**
- * Selected Work section (HOME-03/HOME-04, D-08/D-09/D-10). Renders the real
- * 6 loader-sourced case studies on initial mount, and appends the 5 deferred
- * coming-soon stubs into the SAME grid behind a persistent "see more" toggle
- * (D-09 -- the toggle button never unmounts). Deferred cards always carry a
- * visible "Coming soon" label so they're never mistaken for shipped work
- * (D-10).
+ * Selected Work section (HOME-03, D-07/D-08). Renders only the 6 real
+ * loader-sourced case studies -- no expand/collapse state, no "see more"
+ * toggle, and no links to the 5 deferred slugs. The deferred case studies'
+ * routes remain registered in `router.tsx` (D-07) but are never linked from
+ * this section per DEPL-03; HOME-04's original "see more" expansion is
+ * intentionally removed (superseded by DEPL-03, see REQUIREMENTS.md).
  */
 export function SelectedWork() {
   const ref = useRef<HTMLElement>(null);
   useScrollReveal(ref);
-
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <section id="selected-work" ref={ref}>
@@ -40,27 +37,7 @@ export function SelectedWork() {
             </Button>
           </Card>
         ))}
-
-        {expanded &&
-          deferredCaseStudies.map((dcs) => (
-            <Card key={dcs.slug}>
-              <ImagePlaceholder caption={`${dcs.title} cover — pending`} size="stage" />
-              <Heading as="h3">{dcs.title}</Heading>
-              <Label>Coming soon</Label>
-              <Button variant="ghost" href={`/case-study/${dcs.slug}`}>
-                View case study →
-              </Button>
-            </Card>
-          ))}
       </div>
-
-      <Button
-        variant="ghost"
-        onClick={() => setExpanded((e) => !e)}
-        aria-expanded={expanded}
-      >
-        {expanded ? selectedWorkContent.seeLessLabel : selectedWorkContent.seeMoreLabel}
-      </Button>
 
       <Body>{selectedWorkContent.footnote}</Body>
     </section>
