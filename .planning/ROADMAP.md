@@ -155,11 +155,11 @@ Plans:
   4. The deployed site is publicly reachable at a Vercel/Netlify URL, and directly loading or refreshing a case-study route (e.g. `/case-study/mashreq`) works without a 404
   5. The 5 deferred case-study slugs (riyaah, icici-bank-atm-kiosk, ambit, northernarc, citrus) are not linked from any page and are excluded from sitemap/indexing
 
-**Plans**: 4/6 plans executed
+**Plans**: 5/6 plans executed
 Plans:
 
 - [x] 04-01-PLAN.md — Package legitimacy checkpoint + install resend (D-01)
-- [ ] 04-02-PLAN.md — api/contact.ts serverless function + vercel.json SPA rewrite (D-04, D-02)
+- [x] 04-02-PLAN.md — api/contact.ts serverless function + vercel.json SPA rewrite (D-04, D-02)
 - [x] 04-03-PLAN.md — Footer.tsx real submission handler + honeypot + success/error states (D-09/D-10/D-11/D-12)
 - [x] 04-04-PLAN.md — Remove Selected Work "see more" + deferred links; mark HOME-04 superseded (D-07/D-08)
 - [x] 04-05-PLAN.md — robots.txt + sitemap.xml excluding deferred slugs (DEPL-03)
@@ -207,5 +207,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation & Motion Infrastructure | 7/7 | Complete    | 2026-07-24 |
 | 2. Content Layer & Case-Study Template | 10/10 | Complete    | 2026-07-28 |
 | 3. Homepage Build | 7/7 | Complete    | 2026-07-31 |
-| 4. Contact Form & Deployment Hardening | 4/6 | In Progress|  |
+| 4. Contact Form & Deployment Hardening | 5/6 | In Progress|  |
 | 5. Visual/Motion Polish & Performance Hardening | 0/TBD | Not started | - |
