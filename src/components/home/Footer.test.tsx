@@ -134,7 +134,7 @@ describe('Footer submission handling', () => {
   });
 
   it('submitting with honeypot empty calls fetch once with /api/contact, POST, and the 3 field values', async () => {
-    (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
+    (globalThis.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
       ok: true,
       json: () => Promise.resolve({ ok: true }),
     });
@@ -144,9 +144,9 @@ describe('Footer submission handling', () => {
 
     fireEvent.click(screen.getByRole('button', { name: footerContent.submitLabel }));
 
-    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(globalThis.fetch).toHaveBeenCalledTimes(1));
 
-    const [url, options] = (global.fetch as ReturnType<typeof vi.fn>).mock.calls[0];
+    const [url, options] = (globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls[0];
     expect(url).toBe('/api/contact');
     expect(options.method).toBe('POST');
     const body = JSON.parse(options.body as string);
@@ -167,11 +167,11 @@ describe('Footer submission handling', () => {
     await waitFor(() =>
       expect(screen.getByText(footerContent.successHeadline)).toBeInTheDocument()
     );
-    expect(global.fetch).not.toHaveBeenCalled();
+    expect(globalThis.fetch).not.toHaveBeenCalled();
   });
 
   it('renders the success block in place of the form when fetch resolves ok', async () => {
-    (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
+    (globalThis.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
       ok: true,
       json: () => Promise.resolve({ ok: true }),
     });
@@ -187,7 +187,7 @@ describe('Footer submission handling', () => {
   });
 
   it('renders an error banner above the form and preserves field values when fetch resolves not-ok', async () => {
-    (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
+    (globalThis.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
       ok: false,
       json: () => Promise.resolve({ ok: false }),
     });
@@ -205,7 +205,7 @@ describe('Footer submission handling', () => {
 
   it('shows the submitting label, disables the button, and sets aria-busy on the form while in flight', async () => {
     let resolveFetch: (value: unknown) => void = () => {};
-    (global.fetch as ReturnType<typeof vi.fn>).mockReturnValue(
+    (globalThis.fetch as ReturnType<typeof vi.fn>).mockReturnValue(
       new Promise((resolve) => {
         resolveFetch = resolve;
       })
