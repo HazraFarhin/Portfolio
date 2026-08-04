@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Footer } from './Footer';
 import { footerContent } from '../../content/footer';
 
@@ -90,5 +90,136 @@ describe('Footer', () => {
     expect(screen.getByText(footerContent.wordmark)).toBeInTheDocument();
     expect(screen.getByText(footerContent.tagline)).toBeInTheDocument();
     expect(screen.getByText(footerContent.bottomLine)).toBeInTheDocument();
+  });
+});
+
+describe('Footer submission handling', () => {
+  const fillRequiredFields = () => {
+    fireEvent.change(screen.getByLabelText(footerContent.formFields.workingOn), {
+      target: { value: 'A new dashboard' },
+    });
+    fireEvent.change(screen.getByLabelText(footerContent.formFields.emailLabel), {
+      target: { value: 'someone@example.com' },
+    });
+    fireEvent.change(screen.getByLabelText(footerContent.formFields.clarify), {
+      target: { value: 'The onboarding flow' },
+    });
+  };
+
+  const getHoneypot = (container: HTMLElement) =>
+    container.querySelector('input[name="company"]') as HTMLInputElement;
+
+  beforeEach(() => {
+    vi.stubGlobal('fetch', vi.fn());
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('workingOn input and clarify textarea are required', () => {
+    render(<Footer />);
+    expect(screen.getByLabelText(footerContent.formFields.workingOn)).toBeRequired();
+    expect(screen.getByLabelText(footerContent.formFields.clarify)).toBeRequired();
+  });
+
+  it('renders a hidden honeypot input not reachable via label text', () => {
+    const { container } = render(<Footer />);
+    const honeypot = getHoneypot(container);
+    expect(honeypot).not.toBeNull();
+    expect(honeypot).toHaveAttribute('name', 'company');
+    expect(honeypot).toHaveAttribute('aria-hidden', 'true');
+    expect(honeypot).toHaveAttribute('tabIndex', '-1');
+    expect(screen.queryByLabelText('company')).not.toBeInTheDocument();
+  });
+
+  it('submitting with honeypot empty calls fetch once with /api/contact, POST, and the 3 field values', async () => {
+    (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ ok: true }),
+    });
+
+    render(<Footer />);
+    fillRequiredFields();
+
+    fireEvent.click(screen.getByRole('button', { name: footerContent.submitLabel }));
+
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(1));
+
+    const [url, options] = (global.fetch as ReturnType<typeof vi.fn>).mock.calls[0];
+    expect(url).toBe('/api/contact');
+    expect(options.method).toBe('POST');
+    const body = JSON.parse(options.body as string);
+    expect(body).toMatchObject({
+      workingOn: 'A new dashboard',
+      email: 'someone@example.com',
+      clarify: 'The onboarding flow',
+    });
+  });
+
+  it('submitting with honeypot filled never calls fetch and renders the success block', async () => {
+    const { container } = render(<Footer />);
+    fillRequiredFields();
+    fireEvent.change(getHoneypot(container), { target: { value: 'spambot' } });
+
+    fireEvent.click(screen.getByRole('button', { name: footerContent.submitLabel }));
+
+    await waitFor(() =>
+      expect(screen.getByText(footerContent.successHeadline)).toBeInTheDocument()
+    );
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  it('renders the success block in place of the form when fetch resolves ok', async () => {
+    (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ ok: true }),
+    });
+
+    const { container } = render(<Footer />);
+    fillRequiredFields();
+    fireEvent.click(screen.getByRole('button', { name: footerContent.submitLabel }));
+
+    await waitFor(() =>
+      expect(screen.getByText(footerContent.successHeadline)).toBeInTheDocument()
+    );
+    expect(container.querySelector('form')).not.toBeInTheDocument();
+  });
+
+  it('renders an error banner above the form and preserves field values when fetch resolves not-ok', async () => {
+    (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
+      ok: false,
+      json: () => Promise.resolve({ ok: false }),
+    });
+
+    const { container } = render(<Footer />);
+    fillRequiredFields();
+    fireEvent.click(screen.getByRole('button', { name: footerContent.submitLabel }));
+
+    await waitFor(() => expect(screen.getByText(footerContent.errorHeadline)).toBeInTheDocument());
+    expect(container.querySelector('form')).not.toBeNull();
+    expect(screen.getByLabelText(footerContent.formFields.workingOn)).toHaveValue(
+      'A new dashboard'
+    );
+  });
+
+  it('shows the submitting label, disables the button, and sets aria-busy on the form while in flight', async () => {
+    let resolveFetch: (value: unknown) => void = () => {};
+    (global.fetch as ReturnType<typeof vi.fn>).mockReturnValue(
+      new Promise((resolve) => {
+        resolveFetch = resolve;
+      })
+    );
+
+    const { container } = render(<Footer />);
+    fillRequiredFields();
+    fireEvent.click(screen.getByRole('button', { name: footerContent.submitLabel }));
+
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: footerContent.submittingLabel })).toBeDisabled()
+    );
+    expect(container.querySelector('form')).toHaveAttribute('aria-busy', 'true');
+
+    resolveFetch({ ok: true, json: () => Promise.resolve({ ok: true }) });
   });
 });
