@@ -11,7 +11,7 @@ vi.mock('resend', () => {
   return { Resend: ResendMock };
 });
 
-import contactHandler from './contact';
+import contactHandler from '../../api/contact';
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Shared fixture helpers
